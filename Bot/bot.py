@@ -11,7 +11,9 @@ from Miscellaneous.Scraper import pastebin, text_scraper, throwbin, ghostbin
 import os
 
 
-bot_token = os.environ.get('TG_BOT_TOKEN')
+bot_token =5065580700:AAGiSGcAL0sCyCXG8ZX-iCryWipn6Hy82ZM
+
+#os.environ.get('TG_BOT_TOKEN')
 startmessage = [[
 		InlineKeyboardButton(
 			"𝓐𝓫𝓸𝓾𝓽 𝓜𝓮",
