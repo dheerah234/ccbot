@@ -46,66 +46,18 @@ def combos_spilt(combos):
 
 def help(update, context):
     chat_id = update.message.chat_id
-    text = "<b>Available Sites:\n!alt~space~combo* - to check Ａｌｔｂａｌａｊｉ accounts\n!hoi~space~combo* - to check Ｈｏｉｃｈｏｉ accounts\n!aha~space~combo* - to check Ａｈａ accounts\n!sun~space~combo* - to check ＳｕｎＮｘｔ accounts\n!voot~space~combo* - to check Ｖｏｏｔ accounts\n!zee5~space~combo* - to check Ｚｅｅ５ accounts\n\nMiscellaneous:-\n!pst~space~title|text - to paste text on Throwbin.io and get paste link</b>(If you don't want to give title then skip it just send the text)\n\n*combo means Email:password combination,':' is important."
+    text = "<b>Available cmds available:\n!info\n!bin\n MORE WILL BE UPDATED SOON\n"
     Sendmessage(chat_id, text, reply_markup= InlineKeyboardMarkup(startmessage))
 
 def duty(update, context):
     chat_id = update.message.chat_id
     text =  update.message.text.split(' ', 1)
-    if text[0] == '!alt':
-        if '\n' in text[1]:
-            simple = combos_spilt(text[1])
-            for i in simple:
-                altbalaji_helper(chat_id, i)
-            Sendmessage(chat_id, 'Ｃｏｍｐｌｅｔｅｄ')
-        else:
-            altbalaji_helper(chat_id, text[1])
-    elif text[0] == '!voot':
-        if '\n' in text[1]:
-            simple = combos_spilt(text[1])
-            for i in simple:
-                Voot_helper(chat_id, i)
-            Sendmessage(chat_id, 'Ｃｏｍｐｌｅｔｅｄ')
-        else:
-            Voot_helper(chat_id, text[1])
-    elif text[0] == '!hoi':
-        if '\n' in text[1]:
-            simple = combos_spilt(text[1])
-            for i in simple:
-                hoichoi_helper(chat_id, i)
-            Sendmessage(chat_id, 'Ｃｏｍｐｌｅｔｅｄ')
-        else:
-            hoichoi_helper(chat_id, text[1])
-    elif text[0] == '!aha':
-        if '\n' in text[1]:
-            simple = combos_spilt(text[1])
-            for i in simple:
-                aha_helper(chat_id, i)
-            Sendmessage(chat_id, 'Ｃｏｍｐｌｅｔｅｄ')
-        else:
-            aha_helper(chat_id, text[1])
-    elif text[0] == '!zee5':
-        if '\n' in text[1]:
-            simple = combos_spilt(text[1])
-            for i in simple:
-                zee_helper(chat_id, i)
-            Sendmessage(chat_id, 'Ｃｏｍｐｌｅｔｅｄ')
-        else:
-            zee_helper(chat_id, text[1])
-    elif text[0] == '!sun':
-        if '\n' in text[1]:
-            simple = combos_spilt(text[1])
-            for i in simple:
-                Sun_helper(chat_id, i)
-            Sendmessage(chat_id, 'Ｃｏｍｐｌｅｔｅｄ')
-        else:
-            Sun_helper(chat_id, text[1])
-    elif (text == "!start") :
-        Sendmessage(chat_id, "Hey! I am a CC-Checker bot with a few extras. Send /cmds for a list of all commands!");
+    if (text[0] == "!start") :
+        Sendmessage(chat_id, "Hey! I am a CC-Checker!");
     elif (text[0] == "!cmds") :
-        Sendmessage(chat_id, "cmds11 = '<b>Hey, welcome to this Bot! Below I show you all available commands:</b>%0A%0A<u>Bin lookup:</u> <code>/bin xxxxxx</code>%0A%0A<u>SK-Key Check:</u> <code>/sk sk_live_xxxxxxxxxxxx</code>%0A%0A<u>Card-Check:</u> <code>/stm xxxxxxxxxxxxxxxx|xx|xx|xxx'</code>");
+        Sendmessage(chat_id, "'<b>Hey, welcome to this Bot! Below I show you all available commands:</b>%0A%0A<u>Bin lookup:</u> <code>/bin xxxxxx</code>%0A%0A<u>SK-Key Check:</u> <code>/sk sk_live_xxxxxxxxxxxx</code>%0A%0A<u>Card-Check:</u> <code>/stm xxxxxxxxxxxxxxxx|xx|xx|xxx'</code>");
     elif (text[0] == "!info") :
-        Sendmessage(chat_id, info);
+        Sendmessage(chat_id, "Hey! I am a CC-Checker bot with a few extras. Send /cmds for a list of all commands!");
     elif (text[0] == "!bin") :
         bin = text[5: ];
         ch = curl_init();
@@ -132,6 +84,7 @@ def duty(update, context):
 
     else:
         logger.info('Unknown Command')
+	Sendmessage(chat_id, "Unknown Command!");
 
 
 def scraperdfnc(update, context):
