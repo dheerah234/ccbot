@@ -83,7 +83,7 @@ def duty(update, context):
 
 
     else:
-        logger.info('Unknown Command')
+        logger.info('Unknown Command');
 	Sendmessage(chat_id, "Unknown Command!");
 
 
