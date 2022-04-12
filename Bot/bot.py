@@ -46,7 +46,7 @@ def combos_spilt(combos):
 
 def help(update, context):
     chat_id = update.message.chat_id
-    text = "<b>Available cmds available:\n!info\n!bin\n#MORE WILL BE UPDATED SOON\n"
+    text = "Available cmds available:   !info   !bin   MORE WILL BE UPDATED SOON"
     Sendmessage(chat_id, text, reply_markup= InlineKeyboardMarkup(startmessage))
 
 def duty(update, context):
