@@ -103,11 +103,10 @@ def duty(update, context):
     elif (message == "/start") :
         Sendmessage(chatId, "Hey! I am a CC-Checker bot with a few extras. Send /cmds for a list of all commands!");
     elif (tesr[0] == "/cmds") :
-        Sendmessage(chatId, cmds11);
+        Sendmessage(chatId, "cmds11 = '<b>Hey, welcome to this Bot! Below I show you all available commands:</b>%0A%0A<u>Bin lookup:</u> <code>/bin xxxxxx</code>%0A%0A<u>SK-Key Check:</u> <code>/sk sk_live_xxxxxxxxxxxx</code>%0A%0A<u>Card-Check:</u> <code>/stm xxxxxxxxxxxxxxxx|xx|xx|xxx'</code>");
     elif (tesr[0] == "/info") :
         Sendmessage(chatId, info);
     elif (tesr[0] == "/bin") :
-	cmds11 = "<b>Hey, welcome to this Bot! Below I show you all available commands:</b>%0A%0A<u>Bin lookup:</u> <code>/bin xxxxxx</code>%0A%0A<u>SK-Key Check:</u> <code>/sk sk_live_xxxxxxxxxxxx</code>%0A%0A<u>Card-Check:</u> <code>/stm xxxxxxxxxxxxxxxx|xx|xx|xxx</code>";
         bin = message[5: ];
         ch = curl_init();
         curl_setopt(ch, CURLOPT_URL, str('https://lookup.binlist.net/' + str(bin)) + '');
