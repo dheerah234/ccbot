@@ -14,11 +14,11 @@ import os
 bot_token = os.environ.get('TG_BOT_TOKEN')
 startmessage = [[
 		InlineKeyboardButton(
-			"𝓐𝓫𝓸𝓾𝓽 𝓜𝓮",
+			"About me",
 			url='https://t.me/aboutdheeraj'
 		),
         InlineKeyboardButton(
-			"𝕯𝖊𝖛",
+			"Dev",
 			url='https://t.me/dheeraj2324'
 		)
         ]]
@@ -29,8 +29,9 @@ def start(update, context):
     print(info)
     chat_id = info.id
     userid= info['username']
-    text = f'Ｗｅｌｃｏｍｅ @{userid}, Ｔｏ Ａｃｃｏｕｎｔ Ｃｈｅｃｋ Ｂｏｔ, ｔｏ ｋｎｏｗ ｍｏｒｅ ｕｓｅ /help . 𝕋𝕙𝕚𝕤 𝕓𝕠𝕥 𝕚𝕤 𝕡𝕣𝕠𝕧𝕚𝕕𝕖𝕕 𝕗𝕠𝕣 𝕖𝕕𝕦𝕔𝕒𝕥𝕚𝕠𝕟𝕒𝕝 𝕦𝕤𝕖 𝕠𝕟𝕝𝕪, 𝕒𝕟𝕪 𝕞𝕚𝕤𝕦𝕤𝕖 𝕥𝕙𝕖𝕟 𝕪𝕠𝕦 𝕤𝕙𝕠𝕦𝕝𝕕 𝕓𝕖 𝕣𝕖𝕤𝕡𝕠𝕟𝕤𝕚𝕓𝕝𝕖'
-    Sendmessage(chat_id, text, reply_markup=InlineKeyboardMarkup(startmessage))
+    text = f'Welcome @{userid},cc checker bot, to know more use /help '
+    teste = f'This bot is provided for educational use only, any misuse then you should be responsible.'
+    Sendmessage(chat_id, text,teste, reply_markup=InlineKeyboardMarkup(startmessage))
     return
 
     
