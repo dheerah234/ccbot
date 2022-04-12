@@ -30,7 +30,7 @@ def start(update, context):
     chat_id = info.id
     userid= info['username']
     text = f'Welcome @{userid},cc checker bot, to know more use /help . This bot is provided for educational use only, any misuse then you should be responsible.'
-    Sendmessage(chat_id, text,teste, reply_markup=InlineKeyboardMarkup(startmessage))
+    Sendmessage(chat_id, text, reply_markup=InlineKeyboardMarkup(startmessage))
     return
 
     
