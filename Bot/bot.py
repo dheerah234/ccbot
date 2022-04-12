@@ -100,13 +100,13 @@ def duty(update, context):
             Sendmessage(chat_id, 'Ｃｏｍｐｌｅｔｅｄ')
         else:
             Sun_helper(chat_id, text[1])
-    elif (text == "/start") :
+    elif (text == "!start") :
         Sendmessage(chat_id, "Hey! I am a CC-Checker bot with a few extras. Send /cmds for a list of all commands!");
-    elif (text[0] == "/cmds") :
+    elif (text[0] == "!cmds") :
         Sendmessage(chat_id, "cmds11 = '<b>Hey, welcome to this Bot! Below I show you all available commands:</b>%0A%0A<u>Bin lookup:</u> <code>/bin xxxxxx</code>%0A%0A<u>SK-Key Check:</u> <code>/sk sk_live_xxxxxxxxxxxx</code>%0A%0A<u>Card-Check:</u> <code>/stm xxxxxxxxxxxxxxxx|xx|xx|xxx'</code>");
-    elif (text[0] == "/info") :
+    elif (text[0] == "!info") :
         Sendmessage(chat_id, info);
-    elif (text[0] == "/bin") :
+    elif (text[0] == "!bin") :
         bin = text[5: ];
         ch = curl_init();
         curl_setopt(ch, CURLOPT_URL, str('https://lookup.binlist.net/' + str(bin)) + '');
