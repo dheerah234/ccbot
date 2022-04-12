@@ -83,8 +83,7 @@ def duty(update, context):
 
 
     else:
-        logger.info('Unknown Command');
-	Sendmessage(chat_id, "Unknown Command!");
+        logger.info('Unknown Command')
 
 
 def scraperdfnc(update, context):
