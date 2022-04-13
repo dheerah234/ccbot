@@ -75,7 +75,7 @@ def bin(update, context):
         cc==res["currency"]
         text = "Valid Bin! ✅ \n ━━━━━━━━━━━━━━━  \n • Bin:",ab ,'\n • Country',a,b ,"\n • Scheme:",str(bb),'\n  • Currency:' ,cc,"\n━━━━━━━━━━━━━━━ \n 👤 Checked By: @ASURCCWORLDBOT",'\n Used By ' ,"@",userid
         Sendmessage(chat_id, text)
-     else:
+    else:
         text = "Not Valid Bin"
         Sendmessage(chat_id, text)
 
