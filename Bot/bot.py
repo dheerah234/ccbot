@@ -73,7 +73,7 @@ def bin(update, context):
         b = res["country"]["emoji"]
         aa= res["bank"]["name"]
         bb=res["scheme"]
-        cc=res["currency"]
+        #cc=res["currency"]
         #dd=res["type"]
         text = "Valid Bin! ✅ \n ━━━━━━━━━━━━━━━  \n • Bin:",ab ,'\n • Country',a,b ,"\n • Scheme:",bb, '\n • Type:' , dd, '\n • Currency:' ,cc,"\n━━━━━━━━━━━━━━━ \n 👤 Checked By: @ASURCCWORLDBOT",'\n Used By ' ,"@",userid
         Sendmessage(chat_id, text)
