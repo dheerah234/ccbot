@@ -48,9 +48,17 @@ def help(update, context):
     chat_id = update.message.chat_id
     text = "Available cmds available:!info   !bin   MORE WILL BE UPDATED SOON"
     Sendmessage(chat_id, text, reply_markup= InlineKeyboardMarkup(startmessage))
-def bin(update, context):
+def botstart(update, context):
     chat_id = update.message.chat_id
-    text = "Available cmds available:!info   !bin   MORE WILL BE UPDATED SOON"
+    text = "Hey! I am a CC-Checker!"
+    Sendmessage(chat_id, text, reply_markup= InlineKeyboardMarkup(startmessage))
+def cmds(update, context):
+    chat_id = update.message.chat_id
+    text = "'<b>Hey, welcome to this Bot! Below I show you all available commands:</b>\n Bin lookup:</u> <code>/bin xxxxxx</code><u> \n SK-Key Check:</u> <code>/sk sk_live_xxxxxxxxxxxx</code><u> \n Card-Check:</u> <code>/stm xxxxxxxxxxxxxxxx|xx|xx|xxx</code>"
+    Sendmessage(chat_id, text, reply_markup= InlineKeyboardMarkup(startmessage))
+def info(update, context):
+    chat_id = update.message.chat_id
+    text = "Hey! I am a CC-Checker bot with a few extras. Send /cmds for a list of all commands!"
     Sendmessage(chat_id, text, reply_markup= InlineKeyboardMarkup(startmessage))
 
 def duty(update, context):
@@ -63,7 +71,7 @@ def duty(update, context):
     elif (text[0] == "/" +"info") :
         Sendmessage(chat_id, "Hey! I am a CC-Checker bot with a few extras. Send /cmds for a list of all commands!");
     elif (text[0] == "/"+"bin") :
-        bin = text[5: ];
+	bin = text[5: ];
         ch = curl_init();
         curl_setopt(ch, CURLOPT_URL, str('https://lookup.binlist.net/' + str(bin)) + '');
         curl_setopt(ch, CURLOPT_USERAGENT, user_agent);
@@ -86,6 +94,7 @@ def duty(update, context):
         response = str(str(str(str(str(str(str(str(str(str(str(str(str('✔️ Valid BIN <b>%0ABRAND: </b>' + str(brand)) + '<b>%0ATYPE: </b>') + str(type)) + '<b>%0ALEVEL: </b>') + str(level)) + '<b>%0ABANK: </b>') + str(bank)) + ' <b>%0ACOUNTRY: </b>') + str(country)) + ' ') + str(flag)) + '%0A<b>CHECKED BY:</b> ') + str(username)) + '<b>%0ABOT BY:</b> @teamxcode CyraX';
 
 
+        
     else:
         logger.info('Unknown Command')
 
@@ -119,7 +128,8 @@ def main():
     dp.add_handler(CommandHandler("help", help))
     dp.add_handler(CommandHandler("info", info))
     dp.add_handler(CommandHandler("cmds", cmds))
-    dp.add_handler(CommandHandler("bin", bin))
+    #dp.add_handler(CommandHandler("bin", bin))
+    dp.add_handler(CommandHandler("botstart", botstart))
     logger.info("Bot Started!!!")
     updater.start_polling()
     updater.idle()
