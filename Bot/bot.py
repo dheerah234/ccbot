@@ -33,7 +33,7 @@ def start(update, context):
     print(info)
     chat_id = info.id
     userid= info['username']
-    text = f'Welcome @{userid},cc checker bot, to know more use /help    This bot is provided for educational use only, any misuse then you should be responsible.'
+    text = f'Welcome @{userid}, to cc checker bot, to know more use /help  This bot is provided for educational use only, any misuse then you should be responsible.'
     Sendmessage(chat_id, text, reply_markup=InlineKeyboardMarkup(startmessage))
     return
 
@@ -46,7 +46,11 @@ def combos_spilt(combos):
 
 def help(update, context):
     chat_id = update.message.chat_id
-    text = "Available cmds available:   !info   !bin   MORE WILL BE UPDATED SOON"
+    text = "Available cmds available:!info   !bin   MORE WILL BE UPDATED SOON"
+    Sendmessage(chat_id, text, reply_markup= InlineKeyboardMarkup(startmessage))
+def bin(update, context):
+    chat_id = update.message.chat_id
+    text = "Available cmds available:!info   !bin   MORE WILL BE UPDATED SOON"
     Sendmessage(chat_id, text, reply_markup= InlineKeyboardMarkup(startmessage))
 
 def duty(update, context):
@@ -55,7 +59,7 @@ def duty(update, context):
     if (text[0] == "!start") :
         Sendmessage(chat_id, "Hey! I am a CC-Checker!");
     elif (text[0] == "!cmds") :
-        Sendmessage(chat_id, "'<b>Hey, welcome to this Bot! Below I show you all available commands:</b>%0A%0A<u>Bin lookup:</u> <code>/bin xxxxxx</code>%0A%0A<u>SK-Key Check:</u> <code>/sk sk_live_xxxxxxxxxxxx</code>%0A%0A<u>Card-Check:</u> <code>/stm xxxxxxxxxxxxxxxx|xx|xx|xxx'</code>");
+        Sendmessage(chat_id, "'<b>Hey, welcome to this Bot! Below I show you all available commands:</b>\n Bin lookup:</u> <code>/bin xxxxxx</code><u> \n SK-Key Check:</u> <code>/sk sk_live_xxxxxxxxxxxx</code><u> \n Card-Check:</u> <code>/stm xxxxxxxxxxxxxxxx|xx|xx|xxx</code>");
     elif (text[0] == "!info") :
         Sendmessage(chat_id, "Hey! I am a CC-Checker bot with a few extras. Send /cmds for a list of all commands!");
     elif (text[0] == "!bin") :
