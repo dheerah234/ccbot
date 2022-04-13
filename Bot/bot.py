@@ -50,7 +50,7 @@ def botstart(update, context):
     Sendmessage(chat_id, text)
 def botcmds(update, context):
     chat_id = update.message.chat_id
-    text = "Hey, welcome to this Bot! Below I show you all available commands: \n Bin lookup: /bin xxxxxx \n SK-Key Check: /sk sk_live_xxxxxxxxxxxx  \n Card-Check:/chk xxxxxxxxxxxxxxxx|xx|xx|xxx"
+    text = "Hey, welcome to this Bot! Below I show you all available commands: \n Bin lookup: /bin xxxxxx \n SK-Chck: /sk sk_live_xxxxxxxxxxx \n CC-Check:/chk xxxxxxxxxxxx|xx|xx|xxx"
     Sendmessage(chat_id, text)
 def botinfo(update, context):
     chat_id = update.message.chat_id
