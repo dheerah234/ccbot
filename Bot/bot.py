@@ -56,13 +56,13 @@ def bin(update, context):
 def duty(update, context):
     chat_id = update.message.chat_id
     text =  update.message.text.split(' ', 1)
-    if (text[0] == "!start") :
+    if (text[0] == "/"+"!start") :
         Sendmessage(chat_id, "Hey! I am a CC-Checker!");
-    elif (text[0] == "!cmds") :
+    elif (text[0] == "/"+"cmds") :
         Sendmessage(chat_id, "'<b>Hey, welcome to this Bot! Below I show you all available commands:</b>\n Bin lookup:</u> <code>/bin xxxxxx</code><u> \n SK-Key Check:</u> <code>/sk sk_live_xxxxxxxxxxxx</code><u> \n Card-Check:</u> <code>/stm xxxxxxxxxxxxxxxx|xx|xx|xxx</code>");
-    elif (text[0] == "!info") :
+    elif (text[0] == "/" +"info") :
         Sendmessage(chat_id, "Hey! I am a CC-Checker bot with a few extras. Send /cmds for a list of all commands!");
-    elif (text[0] == "!bin") :
+    elif (text[0] == "/"+"bin") :
         bin = text[5: ];
         ch = curl_init();
         curl_setopt(ch, CURLOPT_URL, str('https://lookup.binlist.net/' + str(bin)) + '');
