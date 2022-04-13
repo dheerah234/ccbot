@@ -64,36 +64,9 @@ def botinfo(update, context):
 def duty(update, context):
     chat_id = update.message.chat_id
     text =  update.message.text.split(' ', 1)
-    if (text[0] == "/"+"!start") :
-        Sendmessage(chat_id, "Hey! I am a CC-Checker!");
-    elif (text[0] == "/"+"cmds") :
-        Sendmessage(chat_id, "'<b>Hey, welcome to this Bot! Below I show you all available commands:</b>\n Bin lookup:</u> <code>/bin xxxxxx</code><u> \n SK-Key Check:</u> <code>/sk sk_live_xxxxxxxxxxxx</code><u> \n Card-Check:</u> <code>/stm xxxxxxxxxxxxxxxx|xx|xx|xxx</code>");
-    elif (text[0] == "/" +"info") :
-        Sendmessage(chat_id, "Hey! I am a CC-Checker bot with a few extras. Send /cmds for a list of all commands!");
-    elif (text[0] == "/"+"bin") :
-        bin = text[5: ];
-        ch = curl_init();
-        curl_setopt(ch, CURLOPT_URL, str('https://lookup.binlist.net/' + str(bin)) + '');
-        curl_setopt(ch, CURLOPT_USERAGENT, user_agent);
-        curl_setopt(ch, CURLOPT_HTTPHEADER, OrderedDict([(0,'Host: lookup.binlist.net'),(1,'Cookie: _ga=GA1.2.549903363.1545240628; _gid=GA1.2.82939664.1545240628'),(2,'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8')]));
-        curl_setopt(ch, CURLOPT_FOLLOWLOCATION, 1);
-        curl_setopt(ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt(ch, CURLOPT_POSTFIELDS, '');
-        resul = curl_exec(ch);
-        result = resul.upper();
-        fim = json_decode(result, True);
-        bank = fim['BANK']['NAME'];
-        country = fim['COUNTRY']['NAME'];
-        brand = fim['SCHEME'];
-        type = fim['TYPE'];
-        level = fim['BRAND'];
-        flag = fim['COUNTRY']['EMOJI'];
-        currency = fim['country']['currency'];
-        type3 = fim['type'].upper();
-        response = str(str(str(str(str(str(str(str(str(str(str('BinData:' + str(type1)) + '-') + str(type3)) + '-') + str(country)) + '-') + str(type)) + ' -') + str(bank)) + ' BANK ') + str(flag)) + '';
-        response = str(str(str(str(str(str(str(str(str(str(str(str(str('✔️ Valid BIN <b>%0ABRAND: </b>' + str(brand)) + '<b>%0ATYPE: </b>') + str(type)) + '<b>%0ALEVEL: </b>') + str(level)) + '<b>%0ABANK: </b>') + str(bank)) + ' <b>%0ACOUNTRY: </b>') + str(country)) + ' ') + str(flag)) + '%0A<b>CHECKED BY:</b> ') + str(username)) + '<b>%0ABOT BY:</b> @teamxcode CyraX';
-
-
+    if (text[0] == "/"+"bin") :
+	text = "Hey! I am a CC-Checker bot with a few extras. Send /ctr for a list of all commands!"
+        
         
     else:
         logger.info('Unknown Command')
