@@ -58,14 +58,15 @@ def botcmds(update, context):
     Sendmessage(chat_id, text)
 def botinfo(update, context):
     chat_id = update.message.chat_id
-    text = "Hey! I am a CC-Checker bot with a few extras. Send /ctr for a list of all commands!"
+    text = "Hey! I am a CC-Checker bot with a few extras. Send /botcmds for a list of all commands!"
     Sendmessage(chat_id, text)
 
 def duty(update, context):
     chat_id = update.message.chat_id
     text =  update.message.text.split(' ', 1)
     if (text[0] == "/"+"bin") :
-        text = "Hey! I am a CC-Checker bot with a few extras. Send /ctr for a list of all commands!"
+        text = "Hey! SOON!"
+        Sendmessage(chat_id, text)
         
         
     else:
