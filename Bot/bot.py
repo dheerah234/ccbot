@@ -71,7 +71,7 @@ def duty(update, context):
     elif (text[0] == "/" +"info") :
         Sendmessage(chat_id, "Hey! I am a CC-Checker bot with a few extras. Send /cmds for a list of all commands!");
     elif (text[0] == "/"+"bin") :
-	bin = text[5: ];
+        bin = text[5: ];
         ch = curl_init();
         curl_setopt(ch, CURLOPT_URL, str('https://lookup.binlist.net/' + str(bin)) + '');
         curl_setopt(ch, CURLOPT_USERAGENT, user_agent);
