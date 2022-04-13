@@ -65,7 +65,7 @@ def duty(update, context):
     chat_id = update.message.chat_id
     text =  update.message.text.split(' ', 1)
     if (text[0] == "/"+"bin") :
-	text = "Hey! I am a CC-Checker bot with a few extras. Send /ctr for a list of all commands!"
+        text = "Hey! I am a CC-Checker bot with a few extras. Send /ctr for a list of all commands!"
         
         
     else:
