@@ -46,20 +46,20 @@ def start(update, context):
 
 def help(update, context):
     chat_id = update.message.chat_id
-    text = "Available cmds available:!info   !bin   MORE WILL BE UPDATED SOON"
+    text = "Available cmds available:/botinfo \n /bin \n /ctr \n /help \n /botstart \n MORE WILL BE UPDATED SOON"
     Sendmessage(chat_id, text, reply_markup= InlineKeyboardMarkup(startmessage))
 def botstart(update, context):
     chat_id = update.message.chat_id
     text = "Hey! I am a CC-Checker!"
-    Sendmessage(chat_id, text, reply_markup= InlineKeyboardMarkup(startmessage))
+    Sendmessage(chat_id, text)
 def ctr(update, context):
     chat_id = update.message.chat_id
     text = "'<b>Hey, welcome to this Bot! Below I show you all available commands:</b>\n Bin lookup:</u> <code>/bin xxxxxx</code><u> \n SK-Key Check:</u> <code>/sk sk_live_xxxxxxxxxxxx</code><u> \n Card-Check:</u> <code>/stm xxxxxxxxxxxxxxxx|xx|xx|xxx</code>"
-    Sendmessage(chat_id, text, reply_markup= InlineKeyboardMarkup(startmessage))
+    Sendmessage(chat_id, text)
 def botinfo(update, context):
     chat_id = update.message.chat_id
-    text = "Hey! I am a CC-Checker bot with a few extras. Send /cmds for a list of all commands!"
-    Sendmessage(chat_id, text, reply_markup= InlineKeyboardMarkup(startmessage))
+    text = "Hey! I am a CC-Checker bot with a few extras. Send /ctr for a list of all commands!"
+    Sendmessage(chat_id, text)
 
 def duty(update, context):
     chat_id = update.message.chat_id
