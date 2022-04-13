@@ -68,13 +68,13 @@ def bin(update, context):
         url=r.text
         res=json.loads(url)
         ab=text[-1]
-        a,b,aa,bb,cc,dd,ee = "null","null","null","null","null","need to be fixed","null"
+        a,b,aa,bb,cc,dd,ee = "null","null","null","null","null","null","null"
         a = res["country"]["name"]
         b = res["country"]["emoji"]
         aa= res["bank"]["name"]
         bb=res["scheme"]
         dia='✅'
-        #cc=res["currency"]
+        cc=res["country"]["currency"]
         #dd=res["type"]
         p=("Valid Bin! {} \n ━━━━━━━━━━━━━━━  \n • Bin: {} \n • Country  {} {} \n • Scheme: {} \n • Type: {} \n • Currency: {} \n━━━━━━━━━━━━━━━ \n 👤 Checked By: @ASURCCWORLDBOT\n Used By @{}")
         text=p.format(dia ,ab ,a,b,bb,dd,cc,userid)
