@@ -60,7 +60,7 @@ def botinfo(update, context):
 def bin(update, context):
     chat_id = update.message.chat_id
     if True :
-        text = "Hey! SOON!"
+        text = "Hey! SOON!,context"
         Sendmessage(chat_id, text)
         
         
