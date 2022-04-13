@@ -39,9 +39,9 @@ def start(update, context):
 
     
 
-def combos_spilt(combos):
-    split = combos.split('\n')
-    return split
+#def combos_spilt(combos):
+ ##   split = combos.split('\n')
+#return split
 
 
 def help(update, context):
