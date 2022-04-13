@@ -63,11 +63,11 @@ def bin(update, context):
     chat_id = info.id
     userid= info['username']
     text =  update.message.text.split(' ', 1)
-    if text[1].isdigit():
+    if text[-1].isdigit():
         r = requests.get("https://lookup.binlist.net/" + str(text[1][:6]))
         url=r.text
         res=json.loads(url)
-        ab=text[1]
+        ab=text[-1]
         a = res["country"]["name"]
         b = res["country"]["emoji"]
         aa= res["bank"]["name"]
