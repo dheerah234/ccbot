@@ -68,12 +68,14 @@ def bin(update, context):
         url=r.text
         res=json.loads(url)
         ab=text[-1]
+	a,b,aa,bb,cc,dd,ee = "null","null","null","null","null","need to be fixed","null"
         a = res["country"]["name"]
         b = res["country"]["emoji"]
         aa= res["bank"]["name"]
         bb=res["scheme"]
-        cc==res["currency"]
-        text = "Valid Bin! ✅ \n ━━━━━━━━━━━━━━━  \n • Bin:",ab ,'\n • Country',a,b ,"\n • Scheme:",str(bb),'\n  • Currency:' ,cc,"\n━━━━━━━━━━━━━━━ \n 👤 Checked By: @ASURCCWORLDBOT",'\n Used By ' ,"@",userid
+        cc=res["currency"]
+        #dd=res["type"]
+        text = "Valid Bin! ✅ \n ━━━━━━━━━━━━━━━  \n • Bin:",ab ,'\n • Country',a,b ,"\n • Scheme:",bb, '\n • Type:' , dd, '\n • Currency:' ,cc,"\n━━━━━━━━━━━━━━━ \n 👤 Checked By: @ASURCCWORLDBOT",'\n Used By ' ,"@",userid
         Sendmessage(chat_id, text)
     else:
         text = "Not Valid Bin"
