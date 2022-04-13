@@ -10,7 +10,8 @@ from Checks.zee5 import zee_helper
 from Checks.sun import Sun_helper
 from Miscellaneous.Scraper import pastebin, text_scraper, throwbin, ghostbin
 import os
-import os
+import requests
+import json
 import math
 from collections import OrderedDict
 
@@ -63,7 +64,7 @@ def botinfo(update, context):
 
 def bin(update, context):
     chat_id = update.message.chat_id
-    if (text[0] == "/"+"bin") :
+    if (text == "/"+"bin") :
         text = "Hey! SOON!"
         Sendmessage(chat_id, text)
         
