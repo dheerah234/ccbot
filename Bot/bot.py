@@ -46,7 +46,7 @@ def start(update, context):
 
 def help(update, context):
     chat_id = update.message.chat_id
-    text = "Available cmds available:\n /botinfo \n /bin \n /ctr \n /help \n /botstart \n MORE WILL BE UPDATED SOON"
+    text = "Available cmds available:\n /botinfo \n /bin \n /botcmds \n /help \n /botstart \n MORE WILL BE UPDATED SOON"
     Sendmessage(chat_id, text, reply_markup= InlineKeyboardMarkup(startmessage))
 def botstart(update, context):
     chat_id = update.message.chat_id
