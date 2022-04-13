@@ -59,7 +59,7 @@ def botinfo(update, context):
 
 def bin(update, context):
     chat_id = update.message.chat_id
-    if (context == "/"+"bin") :
+    if (context == True) :
         text = "Hey! SOON!"
         Sendmessage(chat_id, text)
         
