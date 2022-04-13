@@ -59,15 +59,27 @@ def botinfo(update, context):
 
 def bin(update, context):
     chat_id = update.message.chat_id
-    if True :
-        text = "Hey! SOON!,context"
+    info = update.effective_user
+    chat_id = info.id
+    userid= info['username']
+    text =  update.message.text.split(' ', 1)
+    if text[1].isdigit():
+        r = requests.get("https://lookup.binlist.net/" + str(text[1][:6]))
+        url=r.text
+        res=json.loads(url)
+        ab=text[1]
+        a = res["country"]["name"]
+        b = res["country"]["emoji"]
+        aa= res["bank"]["name"]
+        bb=res["scheme"]
+        cc==res["currency"]
+        text = "Valid Bin! ✅ \n ━━━━━━━━━━━━━━━  \n • Bin:",ab ,'\n • Country',a,b ,"\n • Scheme:",str(bb),'\n  • Currency:' ,cc,"\n━━━━━━━━━━━━━━━ \n 👤 Checked By: @ASURCCWORLDBOT",'\n Used By ' ,"@",userid
         Sendmessage(chat_id, text)
-        
-        
-    else:
-        logger.info('Unknown Command')
+     else:
+        text = "Not Valid Bin"
+        Sendmessage(chat_id, text)
 
-
+	
 def scraperdfnc(update, context):
     msg = update.message.text
     status_msg = update.message
