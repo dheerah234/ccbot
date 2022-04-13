@@ -61,9 +61,8 @@ def botinfo(update, context):
     text = "Hey! I am a CC-Checker bot with a few extras. Send /botcmds for a list of all commands!"
     Sendmessage(chat_id, text)
 
-def duty(update, context):
+def bin(update, context):
     chat_id = update.message.chat_id
-    text =  update.message.text.split(' ', 1)
     if (text[0] == "/"+"bin") :
         text = "Hey! SOON!"
         Sendmessage(chat_id, text)
@@ -102,7 +101,7 @@ def main():
     dp.add_handler(CommandHandler("help", help))
     dp.add_handler(CommandHandler("botinfo", botinfo))
     dp.add_handler(CommandHandler("botcmds", botcmds))
-    #dp.add_handler(CommandHandler("bin", bin))
+    dp.add_handler(CommandHandler("bin", bin))
     dp.add_handler(CommandHandler("botstart", botstart))
     logger.info("Bot Started!!!")
     updater.start_polling()
