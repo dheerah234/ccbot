@@ -52,11 +52,11 @@ def botstart(update, context):
     chat_id = update.message.chat_id
     text = "Hey! I am a CC-Checker!"
     Sendmessage(chat_id, text, reply_markup= InlineKeyboardMarkup(startmessage))
-def cmds(update, context):
+def cmds_1(update, context):
     chat_id = update.message.chat_id
     text = "'<b>Hey, welcome to this Bot! Below I show you all available commands:</b>\n Bin lookup:</u> <code>/bin xxxxxx</code><u> \n SK-Key Check:</u> <code>/sk sk_live_xxxxxxxxxxxx</code><u> \n Card-Check:</u> <code>/stm xxxxxxxxxxxxxxxx|xx|xx|xxx</code>"
     Sendmessage(chat_id, text, reply_markup= InlineKeyboardMarkup(startmessage))
-def info(update, context):
+def botinfo(update, context):
     chat_id = update.message.chat_id
     text = "Hey! I am a CC-Checker bot with a few extras. Send /cmds for a list of all commands!"
     Sendmessage(chat_id, text, reply_markup= InlineKeyboardMarkup(startmessage))
@@ -126,8 +126,8 @@ def main():
     dp.add_handler(CommandHandler("scrape", scraperdfnc))
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(CommandHandler("help", help))
-    dp.add_handler(CommandHandler("info", info))
-    dp.add_handler(CommandHandler("cmds", cmds))
+    dp.add_handler(CommandHandler("botinfo", botinfo))
+    dp.add_handler(CommandHandler("cmds_1", cmds_1))
     #dp.add_handler(CommandHandler("bin", bin))
     dp.add_handler(CommandHandler("botstart", botstart))
     logger.info("Bot Started!!!")
