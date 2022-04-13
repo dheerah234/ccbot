@@ -68,7 +68,7 @@ def bin(update, context):
         url=r.text
         res=json.loads(url)
         ab=text[-1]
-	a,b,aa,bb,cc,dd,ee = "null","null","null","null","null","need to be fixed","null"
+        a,b,aa,bb,cc,dd,ee = "null","null","null","null","null","need to be fixed","null"
         a = res["country"]["name"]
         b = res["country"]["emoji"]
         aa= res["bank"]["name"]
