@@ -4,15 +4,12 @@ from telegram.ext import ( CommandHandler, Filters, MessageHandler, Updater)
 from message import Editmessage, Sendmessage, logger
 from Miscellaneous.Scraper import pastebin, text_scraper, throwbin, ghostbin
 import os
-import tracemalloc
 import requests
-from aiogram import Bot, Dispatcher, executor, types
 from bs4 import BeautifulSoup
 import random
 import string
 import json
 import math
-import asyncio
 from collections import OrderedDict
 
 
