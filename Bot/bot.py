@@ -73,7 +73,7 @@ def bin(update, context):
              if "bank" not in res:
                   res["bank"] = {'name': 'Unavailable'}
 
-             elif "country" not in res:
+             if "country" not in res:
                   res["country"] = {'name': 'Unavailable' , "emoji": " " , "currency": " "}
 
              elif "type" not in res:
