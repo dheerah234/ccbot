@@ -74,7 +74,7 @@ def bin(update, context):
                   res["bank"] = "Unavailable"
                   res["bank"]["name"]="Unavailable"
              if "country" not in res:
-		  res["country"] = "Unavailable"
+                  res["country"] = "Unavailable"
                   res["country"]["name"] = "Unavailable"
                   res["country"]["emoji"] = " "
                   res["country"]["currency"] = "-"
