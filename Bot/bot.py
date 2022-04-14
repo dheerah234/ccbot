@@ -71,14 +71,11 @@ def bin(update, context):
              ab=text[-1]
 
              if "bank" not in res:
-                  res["bank"] = "Unavailable"
-             elif res["bank"]["name"] not in res:
-                  res["bank"]["name"]="Unavailable"
+                  res["bank"] = {'name': 'Unavailable'}
+
              elif "country" not in res:
-                  res["country"] = "Unavailable"
-                  res["country"]["name"] = "Unavailable"
-                  res["country"]["emoji"] = " "
-                  res["country"]["currency"] = "-"
+                  res["country"] = {'name': 'Unavailable' , "emoji": " " , "currency": " "}
+
              elif "type" not in res:
                   res["type"] = "Unavailable"
 	
