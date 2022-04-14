@@ -80,7 +80,7 @@ def bin(update, context):
              dia='✅'
              true,false=True,False
              cc=res["country"]["currency"]
-             if res["type"] =="credit" or res["type"] == "debit" and :
+             if res["type"] =="credit" or res["type"] == "debit":
                   dd=res["type"]
                   p=("Valid Bin! {} \n ━━━━━━━━━━━━━━━  \n • Bin: {} \n • Country  {} {} \n • Scheme: {} \n • Type: {} \n • Currency: {} \n━━━━━━━━━━━━━━━ \n 👤 Checked By: @ASURCCWORLDBOT\n Used By @{}")
                   text=p.format(dia ,ab ,a,b,bb,dd,cc,userid)
