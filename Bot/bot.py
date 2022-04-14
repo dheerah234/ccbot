@@ -70,8 +70,14 @@ def bin(update, context):
              res=json.loads(url)
              ab=text[-1]
              a,b,aa,bb,cc,dd,ee = "null","null","null","null","null","null","null"
-             a = res["country"]["name"]
-             b = res["country"]["emoji"]
+             if len(res["country"])>0:
+                  a = res["country"]["name"]
+             else:
+                  a = "Unavailable"
+             if len(res["country"])>0:
+                  b = res["country"]["emoji"]
+             else:
+                  b = "Unavailable"
              if len(res["bank"])>0:
                   aa= res["bank"]["name"]
              else:
@@ -79,7 +85,11 @@ def bin(update, context):
              bb=res["scheme"]
              dia='✅'
              true,false=True,False
-             cc=res["country"]["currency"]
+             if len(res["country"])>0:
+                  cc = res["country"]["currency"]
+             else:
+                  cc = "Unavailable"
+
              if res["type"] =="credit" or res["type"] == "debit":
                   dd=res["type"]
                   p=("Valid Bin! {} \n ━━━━━━━━━━━━━━━  \n • Bin: {} \n • Country  {} {} \n • Bank: {} \n • Scheme: {} \n • Type: {} \n • Currency: {} \n━━━━━━━━━━━━━━━ \n 👤 Checked By: @ASURCCWORLDBOT\n Used By @{}")
