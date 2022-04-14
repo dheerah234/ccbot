@@ -112,7 +112,17 @@ def bin(update, context):
         p = "Not Valid Bin!{} \n ━━━━━━━━━━━━━━━  \n • Bin: {} \n 👤 Checked By: @ASURCCWORLDBOT\n Used By @{}"
         text = p.format(wdia,ab[:6],userid)
         Sendmessage(chat_id, text)
-################################################################################################################################33
+################################################################################################################################
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/tokens');
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, "card[number]=".$cc."&card[exp_month]=".$mm."&card[exp_year]=".$yyyy."&card[cvc]=".$cvv."");
+curl_setopt($ch, CURLOPT_USERPWD, $sec. ':' . '');
+$headers = array();
+$headers[] = 'Content-Type: application/x-www-form-urlencoded';
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+$result = curl_exec($ch);
 def chk(update,context):
     chat_id = update.message.chat_id
     info = update.effective_user
