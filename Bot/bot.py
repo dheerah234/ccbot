@@ -81,7 +81,7 @@ def bin(update, context):
 	
              bb=res["scheme"]
              dia='✅'
-             a=res["country"]["name"]
+             
              b = res["country"]["emoji"]
              aa=res["bank"]["name"]
              dd=res["type"]
@@ -90,7 +90,7 @@ def bin(update, context):
              
              dd=res["type"]
              p=("Valid Bin! {} \n ━━━━━━━━━━━━━━━  \n • Bin: {} \n • Country  {} {} \n • Bank: {} \n • Scheme: {} \n • Type: {} \n • Currency: {} \n━━━━━━━━━━━━━━━ \n 👤 Checked By: @ASURCCWORLDBOT\n Used By @{}")
-             text=p.format(dia ,ab ,a,b,aa,bb,dd,cc,userid)
+             text=p.format(dia ,ab ,res["country"]["name"],b,aa,bb,dd,cc,userid)
              Sendmessage(chat_id, text)
              
     else:
