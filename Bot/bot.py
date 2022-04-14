@@ -124,6 +124,7 @@ def chk(update,context):
     info = update.effective_user
     chat_id = info.id
     userid= info['username']
+    tic = time.perf_counter()
     text =  update.message.text.split(' ', 1)
     maintxt=text[-1]
     i=maintxt.split("|")
