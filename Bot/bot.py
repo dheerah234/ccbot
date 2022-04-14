@@ -66,26 +66,30 @@ def bin(update, context):
     if text[-1].isdigit():
         r = requests.get("https://lookup.binlist.net/" + str(text[1][:6]))
         url=r.text
-        res=json.loads(url)
-        ab=text[-1]
-        a,b,aa,bb,cc,dd,ee = "null","null","null","null","null","null","null"
-        a = res["country"]["name"]
-        b = res["country"]["emoji"]
-        aa= res["bank"]["name"]
-        bb=res["scheme"]
-        dia='✅'
-        true,false=True,False
-        cc=res["country"]["currency"]
-        if res["type"] =="credit" or res["type"] == "debit":
-             dd=res["type"]
-             p=("Valid Bin! {} \n ━━━━━━━━━━━━━━━  \n • Bin: {} \n • Country  {} {} \n • Scheme: {} \n • Type: {} \n • Currency: {} \n━━━━━━━━━━━━━━━ \n 👤 Checked By: @ASURCCWORLDBOT\n Used By @{}")
-             text=p.format(dia ,ab ,a,b,bb,dd,cc,userid)
-             Sendmessage(chat_id, text)
+        if len(url)>5:
+             res=json.loads(url)
+             ab=text[-1]
+             a,b,aa,bb,cc,dd,ee = "null","null","null","null","null","null","null"
+             a = res["country"]["name"]
+             b = res["country"]["emoji"]
+             aa= res["bank"]["name"]
+             bb=res["scheme"]
+             dia='✅'
+             true,false=True,False
+             cc=res["country"]["currency"]
+             if res["type"] =="credit" or res["type"] == "debit":
+                  dd=res["type"]
+                  p=("Valid Bin! {} \n ━━━━━━━━━━━━━━━  \n • Bin: {} \n • Country  {} {} \n • Scheme: {} \n • Type: {} \n • Currency: {} \n━━━━━━━━━━━━━━━ \n 👤 Checked By: @ASURCCWORLDBOT\n Used By @{}")
+                  text=p.format(dia ,ab ,a,b,bb,dd,cc,userid)
+                  Sendmessage(chat_id, text)
+             else:
+                  res["type"]="null"
+                  dd=res["type"]
+                  p=("Valid Bin! {} \n ━━━━━━━━━━━━━━━  \n • Bin: {} \n • Country  {} {} \n • Scheme: {} \n • Type: {} \n • Currency: {} \n━━━━━━━━━━━━━━━ \n 👤 Checked By: @ASURCCWORLDBOT\n Used By @{}")
+                  text=p.format(dia ,ab ,a,b,bb,dd,cc,userid)
+                  Sendmessage(chat_id, text)
         else:
-             res["type"]="null"
-             dd=res["type"]
-             p=("Valid Bin! {} \n ━━━━━━━━━━━━━━━  \n • Bin: {} \n • Country  {} {} \n • Scheme: {} \n • Type: {} \n • Currency: {} \n━━━━━━━━━━━━━━━ \n 👤 Checked By: @ASURCCWORLDBOT\n Used By @{}")
-             text=p.format(dia ,ab ,a,b,bb,dd,cc,userid)
+             text = "Not Valid Bin"
              Sendmessage(chat_id, text)
     else:
         text = "Not Valid Bin"
