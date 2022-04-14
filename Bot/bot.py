@@ -207,7 +207,7 @@ STATUS ➟ #ApprovedCCN \n
 MSG➟ {msg} \n
 TOOK: {toc - tic:0.4f}s\n
 CHECKED BY @ASURCCWORLDBOT \n
-Used by @userid}
+Used by @{userid}
 """)
         Sendmessage(chat_id , text)
     elif "Unrecognized request URL" in rx.text:
@@ -219,14 +219,14 @@ Used by @userid}
 STATUS ➟ #ApprovedCVV \n
 TOOK: {toc - tic:0.4f}s\n
 CHECKED BY @ASURCCWORLDBOT \n
-Used by @userid}
+Used by @{userid}
 """)
         Sendmessage(chat_id , text)
     else:
         text=(f"""
 ❌ CC➟ {cc} \n STATUS ➟ Declined \n MSG 
 ➟ {msg} \n TOOK: {toc - tic:0.4f} \n CHECKED BY @ASURCCWORLDBOT \n
-Used by @userid}
+Used by @{userid}
 """)
         Sendmessage(chat_id , text)
 #########################################################################################################
