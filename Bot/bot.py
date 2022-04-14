@@ -93,12 +93,22 @@ def bin(update, context):
              text=p.format(dia ,ab ,res["country"]["name"],res["country"]["emoji"],res["bank"]["name"],bb,dd,res["country"]["currency"],userid)
              Sendmessage(chat_id, text)
         else:
+             chat_id = update.message.chat_id
+             info = update.effective_user
+             chat_id = info.id
+             userid= info['username']
+             ab=text[-1]
              wdia='❌'
              p = "Not Valid Bin!{} \n ━━━━━━━━━━━━━━━  \n • Bin: {} \n 👤 Checked By: @ASURCCWORLDBOT\n Used By @{}"
              text = p.format(wdia,ab,userid)
              Sendmessage(chat_id, text)
              
     else:
+	chat_id = update.message.chat_id
+        info = update.effective_user
+        chat_id = info.id
+        userid= info['username']
+        ab=text[-1]
         wdia='❌'
         p = "Not Valid Bin!{} \n ━━━━━━━━━━━━━━━  \n • Bin: {} \n 👤 Checked By: @ASURCCWORLDBOT\n Used By @{}"
         text = p.format(wdia,ab,userid)
