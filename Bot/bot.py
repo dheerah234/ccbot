@@ -81,7 +81,7 @@ def bin(update, context):
 	
              bb=res["scheme"]
              dia='✅'
-             wdia='❌'
+             
              
              
              dd=res["type"]
@@ -93,12 +93,15 @@ def bin(update, context):
              text=p.format(dia ,ab ,res["country"]["name"],res["country"]["emoji"],res["bank"]["name"],bb,dd,res["country"]["currency"],userid)
              Sendmessage(chat_id, text)
         else:
+             wdia='❌'
              p = "Not Valid Bin!{} \n ━━━━━━━━━━━━━━━  \n • Bin: {} \n 👤 Checked By: @ASURCCWORLDBOT\n Used By @{}"
              text = p.format(wdia,ab,userid)
              Sendmessage(chat_id, text)
              
     else:
-        text = "Not Valid Bin"
+        wdia='❌'
+        p = "Not Valid Bin!{} \n ━━━━━━━━━━━━━━━  \n • Bin: {} \n 👤 Checked By: @ASURCCWORLDBOT\n Used By @{}"
+        text = p.format(wdia,ab,userid)
         Sendmessage(chat_id, text)
 
 	
