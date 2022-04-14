@@ -104,7 +104,7 @@ def bin(update, context):
              Sendmessage(chat_id, text)
              
     else:
-	chat_id = update.message.chat_id
+        chat_id = update.message.chat_id
         info = update.effective_user
         chat_id = info.id
         userid= info['username']
