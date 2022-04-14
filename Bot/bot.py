@@ -113,7 +113,7 @@ def bin(update, context):
         text = p.format(wdia,ab[:6],userid)
         Sendmessage(chat_id, text)
 ################################################################################################################################33
-def chk(update,context):
+async def chk(update,context):
     chat_id = update.message.chat_id
     info = update.effective_user
     chat_id = info.id
