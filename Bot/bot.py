@@ -206,7 +206,7 @@ def chk(update,context):
 <b>STATUS</b>➟ #ApprovedCCN
 <b>MSG</b>➟ {msg}
 <b>TOOK:</b> <code>{toc - tic:0.4f}</code>(s)
-<b>CHKBY</b>➟ <a href="tg://user?id={message.from_user.id}">{message.from_user.first_name}</a>
+<b>CHKBY</b>➟ <a @{userid}</a>
 """)
         Sendmessage(chat_id , text)
     elif "Unrecognized request URL" in rx.text:
@@ -217,7 +217,7 @@ def chk(update,context):
 ✔️<b>CC</b>➟ <code>{cc}</code>
 <b>STATUS</b>➟ #ApprovedCVV
 <b>TOOK:</b> <code>{toc - tic:0.4f}</code>(s)
-<b>CHKBY</b>➟ <a href="tg://user?id={message.from_user.id}">{message.from_user.first_name}</a>
+<b>CHKBY</b>➟ <a @{userid}</a>
 """)
         Sendmessage(chat_id , text)
     else:
@@ -226,7 +226,7 @@ def chk(update,context):
 <b>STATUS</b>➟ Declined
 <b>MSG</b>➟ {msg}
 <b>TOOK:</b> <code>{toc - tic:0.4f}</code>(s)
-<b>CHKBY</b>➟ <a href="tg://user?id={message.from_user.id}">{message.from_user.first_name}</a>
+<b>CHKBY</b>➟ <a @{userid}</a>
 """)
         Sendmessage(chat_id , text)
 #########################################################################################################
