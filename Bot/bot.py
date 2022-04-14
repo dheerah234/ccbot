@@ -189,7 +189,7 @@ def chk(update,context):
     toc = time.perf_counter()
     if "incorrect_cvc" in rx.text:
         text = (f"""
-✅CC➟ {cc[:7]}xxxxxxx|{mon}|{year}|{cvv} \n
+✅CC➟ `{cc[:7]}xxxxxxx|{mon}|{year}|{cvv}` \n
 STATUS ➟ #ApprovedCCN \n
 MSG➟ {msg} \n
 TOOK: {toc - tic:0.4f}s\n
@@ -202,7 +202,7 @@ Used by @{userid}
         Sendmessage(chat_id , text)
     elif rx.status_code == 200:
         text = (f"""
-✔️CC➟ {cc[:7]}xxxxxxx|{mon}|{year}|{cvv} \n
+✔️CC➟ `{cc[:7]}xxxxxxx|{mon}|{year}|{cvv}` \n
 STATUS ➟ #ApprovedCVV \n
 TOOK: {toc - tic:0.4f}s\n
 CHECKED BY @ASURCCWORLDBOT \n
@@ -211,7 +211,7 @@ Used by @{userid}
         Sendmessage(chat_id , text)
     else:
         text=(f"""
-❌ CC➟ {cc[:7]}xxxxxxx|{mon}|{year}|{cvv} \n STATUS ➟ Declined \n MSG 
+❌ CC➟ `{cc[:7]}xxxxxxx|{mon}|{year}|{cvv}` \n STATUS ➟ Declined \n MSG 
 ➟ {msg} \n TOOK: {toc - tic:0.4f} \n CHECKED BY @ASURCCWORLDBOT \n
 Used by @{userid}
 """)
