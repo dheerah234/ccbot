@@ -2,11 +2,12 @@
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ( CommandHandler, Filters, MessageHandler, Updater)
 from message import Editmessage, Sendmessage, logger
-from Checks.Altbalaji import altbalaji_helper
 from Miscellaneous.Scraper import pastebin, text_scraper, throwbin, ghostbin
 import os
 import tracemalloc
 import requests
+from aiogram import Bot, Dispatcher, executor, types
+from bs4 import BeautifulSoup
 import random
 import string
 import json
@@ -115,7 +116,7 @@ def bin(update, context):
         text = p.format(wdia,ab[:6],userid)
         Sendmessage(chat_id, text)
 ################################################################################################################################33
-async def chk(update,context):
+def chk(update,context):
     chat_id = update.message.chat_id
     info = update.effective_user
     chat_id = info.id
@@ -195,36 +196,34 @@ async def chk(update,context):
     msg = res["error"]["message"]
     toc = time.perf_counter()
     if "incorrect_cvc" in rx.text:
-        await asyncio.sleep(delay)
-        await asyncio.message.reply(f"""
+        text = (f"""
 ✅<b>CC</b>➟ <code>{cc}</code>
 <b>STATUS</b>➟ #ApprovedCCN
 <b>MSG</b>➟ {msg}
 <b>TOOK:</b> <code>{toc - tic:0.4f}</code>(s)
 <b>CHKBY</b>➟ <a href="tg://user?id={message.from_user.id}">{message.from_user.first_name}</a>
 """)
+        Sendmessage(chat_id , text)
     elif "Unrecognized request URL" in rx.text:
-        await asyncio.sleep(delay)
-        await asyncio.message.reply("[UPDATE] PROXIES ERROR")
+        text = ("[UPDATE] PROXIES ERROR")
+        Sendmessage(chat_id , text)
     elif rx.status_code == 200:
-        await asyncio.sleep(delay)
-        await asyncio.message.reply(f"""
+        text = (f"""
 ✔️<b>CC</b>➟ <code>{cc}</code>
 <b>STATUS</b>➟ #ApprovedCVV
 <b>TOOK:</b> <code>{toc - tic:0.4f}</code>(s)
 <b>CHKBY</b>➟ <a href="tg://user?id={message.from_user.id}">{message.from_user.first_name}</a>
 """)
+        Sendmessage(chat_id , text)
     else:
-        await asyncio.sleep(delay)
-
-        await asyncio.message.reply(f"""
+        text=(f"""
 ❌<b>CC</b>➟ <code>{cc}</code>
 <b>STATUS</b>➟ Declined
 <b>MSG</b>➟ {msg}
 <b>TOOK:</b> <code>{toc - tic:0.4f}</code>(s)
 <b>CHKBY</b>➟ <a href="tg://user?id={message.from_user.id}">{message.from_user.first_name}</a>
 """)
-    
+        Sendmessage(chat_id , text)
 #########################################################################################################
 	
 def scraperdfnc(update, context):
