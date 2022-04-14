@@ -170,7 +170,7 @@ def chk(update,context):
       "webauthn_uvpa_available": "true",
       "spc_eligible": "false",
       "key": "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",
-      "client_secret" = "noi"
+      "client_secret" : "noi"
     }
     
     header = {
