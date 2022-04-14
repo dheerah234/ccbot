@@ -72,6 +72,7 @@ def bin(update, context):
              a,b,aa,bb,cc,dd,ee = "null","null","null","null","null","null","null"
              if "bank" not in res:
                   res["bank"] = "Unavailable"
+             if res["bank"]["name"] not in res:
                   res["bank"]["name"]="Unavailable"
              if "country" not in res:
                   res["country"] = "Unavailable"
