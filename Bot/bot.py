@@ -72,12 +72,15 @@ def bin(update, context):
              a,b,aa,bb,cc,dd,ee = "null","null","null","null","null","null","null"
              a = res["country"]["name"]
              b = res["country"]["emoji"]
-             aa= res["bank"]["name"]
+             if len(res["bank"])>0:
+                  aa= res["bank"]["name"]
+             else:
+                  aa= "null"
              bb=res["scheme"]
              dia='✅'
              true,false=True,False
              cc=res["country"]["currency"]
-             if res["type"] =="credit" or res["type"] == "debit":
+             if res["type"] =="credit" or res["type"] == "debit" and :
                   dd=res["type"]
                   p=("Valid Bin! {} \n ━━━━━━━━━━━━━━━  \n • Bin: {} \n • Country  {} {} \n • Scheme: {} \n • Type: {} \n • Currency: {} \n━━━━━━━━━━━━━━━ \n 👤 Checked By: @ASURCCWORLDBOT\n Used By @{}")
                   text=p.format(dia ,ab ,a,b,bb,dd,cc,userid)
