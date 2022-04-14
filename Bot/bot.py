@@ -74,7 +74,7 @@ def bin(update, context):
                   res["bank"] = {'name': 'Unavailable'}
 
              if "country" not in res:
-                  res["country"] = {'name': 'Unavailable' , "emoji": " " , "currency": " "}
+                  res["country"] = {'name': 'Unavailable' , "emoji": " " , "currency": "--"}
 
              elif "type" not in res:
                   res["type"] = "Unavailable"
@@ -89,7 +89,7 @@ def bin(update, context):
              true,false=True,False
              
              dd=res["type"]
-             p=("Valid Bin! {} \n ━━━━━━━━━━━━━━━  \n • Bin: {} \n • Country  {} {} \n • Bank: {} \n • Scheme: {} \n • Type: {} \n • Currency: {} \n━━━━━━━━━━━━━━━ \n 👤 Checked By: @ASURCCWORLDBOT\n Used By @{}")
+             p=("Valid Bin! {} \n ━━━━━━━━━━━━━━━  \n • Bin: {} \n • Country: {} {} \n • Bank: {} \n • Scheme: {} \n • Type: {} \n • Currency: {} \n━━━━━━━━━━━━━━━ \n 👤 Checked By: @ASURCCWORLDBOT\n Used By @{}")
              text=p.format(dia ,ab ,res["country"]["name"],res["country"]["emoji"],res["bank"]["name"],bb,dd,res["country"]["currency"],userid)
              Sendmessage(chat_id, text)
              
