@@ -74,7 +74,7 @@ def bin(update, context):
                   res["bank"] = {'name': 'Unavailable'}
 
              if "country" not in res:
-                  res["country"] = {'name': 'Unavailable' , "emoji": " " , "currency": "--"}
+                  res["country"] = {"name": "Unavailable" , "emoji": " " , "currency": "--"}
 
              elif "type" not in res:
                   res["type"] = "Unavailable"
@@ -90,7 +90,7 @@ def bin(update, context):
              
              dd=res["type"]
              p=("Valid Bin! {} \n ━━━━━━━━━━━━━━━  \n • Bin: {} \n • Country: {} {} \n • Bank: {} \n • Scheme: {} \n • Type: {} \n • Currency: {} \n━━━━━━━━━━━━━━━ \n 👤 Checked By: @ASURCCWORLDBOT\n Used By @{}")
-             text=p.format(dia ,ab ,res["country"]["name"],res["country"]["emoji"],res["bank"]["name"],bb,dd,res["country"]["currency"],userid)
+             text=p.format(dia ,ab[:6] ,res["country"]["name"],res["country"]["emoji"],res["bank"]["name"],bb,dd,res["country"]["currency"],userid)
              Sendmessage(chat_id, text)
         else:
              chat_id = update.message.chat_id
@@ -99,8 +99,8 @@ def bin(update, context):
              userid= info['username']
              ab=text[-1]
              wdia='❌'
-             p = "Not Valid Bin!{} \n ━━━━━━━━━━━━━━━  \n • Bin: {} \n 👤 Checked By: @ASURCCWORLDBOT\n Used By @{}"
-             text = p.format(wdia,ab,userid)
+             p = "Not Valid Bin!{} \n ━━━━━━━━━━━━━━━  \n • Bin: {} \n ━━━━━━━━━━━━━━━ \n👤 Checked By: @ASURCCWORLDBOT\n  Used By @{}"
+             text = p.format(wdia,ab[:6],userid)
              Sendmessage(chat_id, text)
              
     else:
@@ -111,7 +111,7 @@ def bin(update, context):
         ab=text[-1]
         wdia='❌'
         p = "Not Valid Bin!{} \n ━━━━━━━━━━━━━━━  \n • Bin: {} \n 👤 Checked By: @ASURCCWORLDBOT\n Used By @{}"
-        text = p.format(wdia,ab,userid)
+        text = p.format(wdia,ab[:6],userid)
         Sendmessage(chat_id, text)
 
 	
