@@ -202,11 +202,12 @@ def chk(update,context):
     toc = time.perf_counter()
     if "incorrect_cvc" in rx.text:
         text = (f"""
-✅<b>CC</b>➟ <code>{cc}</code>
-<b>STATUS</b>➟ #ApprovedCCN
-<b>MSG</b>➟ {msg}
-<b>TOOK:</b> <code>{toc - tic:0.4f}</code>(s)
-<b>CHKBY</b>➟ <a @{userid}</a>
+✅CC➟ {cc} \n
+STATUS ➟ #ApprovedCCN \n
+MSG➟ {msg} \n
+TOOK: {toc - tic:0.4f}s\n
+CHECKED BY @ASURCCWORLDBOT \n
+Used by @userid}
 """)
         Sendmessage(chat_id , text)
     elif "Unrecognized request URL" in rx.text:
@@ -214,19 +215,18 @@ def chk(update,context):
         Sendmessage(chat_id , text)
     elif rx.status_code == 200:
         text = (f"""
-✔️<b>CC</b>➟ <code>{cc}</code>
-<b>STATUS</b>➟ #ApprovedCVV
-<b>TOOK:</b> <code>{toc - tic:0.4f}</code>(s)
-<b>CHKBY</b>➟ <a @{userid}</a>
+✔️CC➟ {cc} \n
+STATUS ➟ #ApprovedCVV \n
+TOOK: {toc - tic:0.4f}s\n
+CHECKED BY @ASURCCWORLDBOT \n
+Used by @userid}
 """)
         Sendmessage(chat_id , text)
     else:
         text=(f"""
-❌<b>CC</b>➟ <code>{cc}</code>
-<b>STATUS</b>➟ Declined
-<b>MSG</b>➟ {msg}
-<b>TOOK:</b> <code>{toc - tic:0.4f}</code>(s)
-<b>CHKBY</b>➟ <a @{userid}</a>
+❌ CC➟ {cc} \n STATUS ➟ Declined \n MSG 
+➟ {msg} \n TOOK: {toc - tic:0.4f} \n CHECKED BY @ASURCCWORLDBOT \n
+Used by @userid}
 """)
         Sendmessage(chat_id , text)
 #########################################################################################################
