@@ -5,6 +5,7 @@ from message import Editmessage, Sendmessage, logger
 from Checks.Altbalaji import altbalaji_helper
 from Miscellaneous.Scraper import pastebin, text_scraper, throwbin, ghostbin
 import os
+import tracemalloc
 import requests
 import random
 import string
@@ -194,6 +195,7 @@ async def chk(update,context):
     msg = res["error"]["message"]
     toc = time.perf_counter()
     if "incorrect_cvc" in rx.text:
+        await asyncio.sleep(delay)
         await asyncio.message.reply(f"""
 ✅<b>CC</b>➟ <code>{cc}</code>
 <b>STATUS</b>➟ #ApprovedCCN
@@ -202,8 +204,10 @@ async def chk(update,context):
 <b>CHKBY</b>➟ <a href="tg://user?id={message.from_user.id}">{message.from_user.first_name}</a>
 """)
     elif "Unrecognized request URL" in rx.text:
+        await asyncio.sleep(delay)
         await asyncio.message.reply("[UPDATE] PROXIES ERROR")
     elif rx.status_code == 200:
+        await asyncio.sleep(delay)
         await asyncio.message.reply(f"""
 ✔️<b>CC</b>➟ <code>{cc}</code>
 <b>STATUS</b>➟ #ApprovedCVV
@@ -211,6 +215,8 @@ async def chk(update,context):
 <b>CHKBY</b>➟ <a href="tg://user?id={message.from_user.id}">{message.from_user.first_name}</a>
 """)
     else:
+        await asyncio.sleep(delay)
+
         await asyncio.message.reply(f"""
 ❌<b>CC</b>➟ <code>{cc}</code>
 <b>STATUS</b>➟ Declined
