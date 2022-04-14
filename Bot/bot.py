@@ -70,11 +70,11 @@ def bin(update, context):
              res=json.loads(url)
              ab=text[-1]
              a,b,aa,bb,cc,dd,ee = "null","null","null","null","null","null","null"
-             if len(res["country"])>0:
+             if (len(res["country"])>0):
                   a = res["country"]["name"]
              else:
                   a = "Unavailable"
-             if len(res["country"])>0:
+             if (len(res["country"])>0):
                   b = res["country"]["emoji"]
              else:
                   b = "Unavailable"
