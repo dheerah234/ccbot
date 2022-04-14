@@ -8,11 +8,12 @@ import requests
 from bs4 import BeautifulSoup
 import random
 import string
+import time
 import json
 import math
 from collections import OrderedDict
 
-
+os.environ['TZ'] = 'America/Buenos_Aires'
 bot_token = os.environ.get('TG_BOT_TOKEN')
 startmessage = [[
 		InlineKeyboardButton(
