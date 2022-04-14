@@ -10,6 +10,7 @@ import random
 import string
 import json
 import math
+import asyncio
 from collections import OrderedDict
 
 
@@ -193,7 +194,7 @@ async def chk(update,context):
     msg = res["error"]["message"]
     toc = time.perf_counter()
     if "incorrect_cvc" in rx.text:
-        await message.reply(f"""
+        await asyncio.message.reply(f"""
 ✅<b>CC</b>➟ <code>{cc}</code>
 <b>STATUS</b>➟ #ApprovedCCN
 <b>MSG</b>➟ {msg}
@@ -201,16 +202,16 @@ async def chk(update,context):
 <b>CHKBY</b>➟ <a href="tg://user?id={message.from_user.id}">{message.from_user.first_name}</a>
 """)
     elif "Unrecognized request URL" in rx.text:
-        await message.reply("[UPDATE] PROXIES ERROR")
+        await asyncio.message.reply("[UPDATE] PROXIES ERROR")
     elif rx.status_code == 200:
-        await message.reply(f"""
+        await asyncio.message.reply(f"""
 ✔️<b>CC</b>➟ <code>{cc}</code>
 <b>STATUS</b>➟ #ApprovedCVV
 <b>TOOK:</b> <code>{toc - tic:0.4f}</code>(s)
 <b>CHKBY</b>➟ <a href="tg://user?id={message.from_user.id}">{message.from_user.first_name}</a>
 """)
     else:
-        await message.reply(f"""
+        await asyncio.message.reply(f"""
 ❌<b>CC</b>➟ <code>{cc}</code>
 <b>STATUS</b>➟ Declined
 <b>MSG</b>➟ {msg}
