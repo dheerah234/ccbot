@@ -25,6 +25,10 @@ startmessage = [[
 		)
         ]]
 
+#random str GEN FOR EMAIL
+N = 10
+rnd = ''.join(random.choices(string.ascii_lowercase +
+                                string.digits, k = N))
 
 def start(update, context):
     info = update.effective_user
@@ -126,6 +130,7 @@ def chk(update,context):
     mon=i[1]
     year=i[2]
     cvv=i[3]
+    email = f"{str(rnd)}@gmail.com"
     skeys = OrderedDict([(1,'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')]);
     headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4571.0 Safari/537.36 Edg/93.0.957.0","Accept": "application/json, text/plain, */*","Content-Type": "application/x-www-form-urlencoded"}
     s = requests.post("https://m.stripe.com/6",headers=headers)
@@ -161,7 +166,7 @@ def chk(update,context):
     load = {
       "receipt_email": email,
       "payment_method_data[type]": "card",
-      "payment_method_data[billing_details][email]": "dheeraj",
+      "payment_method_data[billing_details][email]": email,
       "payment_method_data[card][number]": cc,
       "payment_method_data[card][cvc]": cvv,
       "payment_method_data[card][exp_month]": mon,
@@ -175,7 +180,7 @@ def chk(update,context):
       "use_stripe_sdk": "true",
       "webauthn_uvpa_available": "true",
       "spc_eligible": "false",
-      "key": "pk_live_Nlfxy49RuJeHqF1XOAtUPUXg00fH7wpfXs",
+      "key": "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",
       "client_secret": client
     }
     
