@@ -82,7 +82,7 @@ def bin(update, context):
              cc=res["country"]["currency"]
              if res["type"] =="credit" or res["type"] == "debit":
                   dd=res["type"]
-                  p=("Valid Bin! {} \n ━━━━━━━━━━━━━━━  \n • Bin: {} \n • Country  {} {} \n  • Bank: {} \n • Scheme: {} \n • Type: {} \n • Currency: {} \n━━━━━━━━━━━━━━━ \n 👤 Checked By: @ASURCCWORLDBOT\n Used By @{}")
+                  p=("Valid Bin! {} \n ━━━━━━━━━━━━━━━  \n • Bin: {} \n • Country  {} {} \n • Bank: {} \n • Scheme: {} \n • Type: {} \n • Currency: {} \n━━━━━━━━━━━━━━━ \n 👤 Checked By: @ASURCCWORLDBOT\n Used By @{}")
                   text=p.format(dia ,ab ,a,b,aa,bb,dd,cc,userid)
                   Sendmessage(chat_id, text)
              else:
