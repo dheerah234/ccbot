@@ -69,17 +69,17 @@ def bin(update, context):
         if len(url)>5:
              res=json.loads(url)
              ab=text[-1]
-             a,b,aa,bb,cc,dd,ee = "null","null","null","null","null","null","null"
+
              if "bank" not in res:
                   res["bank"] = "Unavailable"
-             if res["bank"]["name"] not in res:
+             elif res["bank"]["name"] not in res:
                   res["bank"]["name"]="Unavailable"
-             if "country" not in res:
+             elif "country" not in res:
                   res["country"] = "Unavailable"
                   res["country"]["name"] = "Unavailable"
                   res["country"]["emoji"] = " "
                   res["country"]["currency"] = "-"
-             if "type" not in res:
+             elif "type" not in res:
                   res["type"] = "Unavailable"
 	
              bb=res["scheme"]
