@@ -125,6 +125,7 @@ def chk(update,context):
     chat_id = info.id
     userid= info['username']
     tic = time.perf_counter()
+    wdia ='❌'
     text =  update.message.text.split(' ', 1)
     maintxt=text[-1]
     i=maintxt.split("|")
@@ -208,12 +209,12 @@ Used by @{userid}
         if msg =  "Your card has insufficient funds."
             msg = "Your card has insufficient funds ✅"
             text=(f"""
-❌ CC➟ <code>{cc[:7]}xxxxxxxxx|{mes}|{ano}|{cvv}</code> \n STATUS ➟ Declined \n MSG 
+{wdia} CC➟ <code>{cc[:7]}xxxxxxxxx|{mes}|{ano}|{cvv}</code> \n STATUS ➟ Declined \n MSG 
 ➟ {msg} \n TOOK: {toc - tic:0.4f} \n CHECKED BY @ASURCCWORLDBOT \n
 Used by @{userid}
         else:
             text=(f"""
-❌ CC➟ <code>{cc[:7]}xxxxxxxxx|{mes}|{ano}|{cvv}</code> \n STATUS ➟ Declined \n MSG 
+{wdia} CC➟ <code>{cc[:7]}xxxxxxxxx|{mes}|{ano}|{cvv}</code> \n STATUS ➟ Declined \n MSG 
 ➟ {msg} \n TOOK: {toc - tic:0.4f} \n CHECKED BY @ASURCCWORLDBOT \n
 Used by @{userid}
 """)
