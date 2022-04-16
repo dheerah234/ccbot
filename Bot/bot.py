@@ -155,7 +155,7 @@ def chk(update,context):
         'Content-Type': 'application/x-www-form-urlencoded'
     }
     data = {
-        'amount': '10',
+        'amount': '60',
         'currency': 'usd',
         'payment_method_types[]': 'card',
         'description': 'Asur Donation',
