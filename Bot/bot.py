@@ -147,6 +147,13 @@ def chk(update,context):
     response = requests.post(url, headers=headers, data=data)
     q=response.text
     w=json.loads(q)
+    if 'card' not in w:
+       w['card']['three_d_secure_usage']['supported'] == False
+       vs ="False"
+    if w['card']['three_d_secure_usage']['supported'] == False:
+       vs ="False ✅"
+    else:
+       vs="True ❌"
 
     #second request
     url = 'https://api.stripe.com/v1/payment_intents'
@@ -176,6 +183,7 @@ def chk(update,context):
 ✅CC➟ <code>{cc[:7]}xxxxxxxxxx|{mes}|{ano}|{cvv}</code> \n
 STATUS ➟ #ApprovedCCN \n
 MSG➟ {msg} \n
+VBV[3D] ➟ {vs} \n
 TOOK: {toc - tic:0.4f}s\n
 CHECKED BY @ASURCCWORLDBOT \n
 Used by @{userid}
@@ -188,15 +196,23 @@ Used by @{userid}
         text = (f"""
 ✔️CC➟ <code>{cc[:7]}xxxxxxxxxx|{mes}|{ano}|{cvv}</code> \n
 STATUS ➟ #ApprovedCVV \n
-Response -» Successfully Charged 1$ ✅
-Gateway -» Stripe Charge 1$ 
+Response -» Successfully Charged 1$ ✅ \n
+Gateway -» Stripe Charge 1$ \n
+VBV[3D] ➟ {vs}  \n
 TOOK: {toc - tic:0.4f}s\n
 CHECKED BY @ASURCCWORLDBOT \n
 Used by @{userid}
 """)
         Sendmessage(chat_id , text)
     else:
-        text=(f"""
+        if msg =  "Your card has insufficient funds."
+            msg = "Your card has insufficient funds ✅"
+            text=(f"""
+❌ CC➟ <code>{cc[:7]}xxxxxxxxx|{mes}|{ano}|{cvv}</code> \n STATUS ➟ Declined \n MSG 
+➟ {msg} \n TOOK: {toc - tic:0.4f} \n CHECKED BY @ASURCCWORLDBOT \n
+Used by @{userid}
+        else:
+            text=(f"""
 ❌ CC➟ <code>{cc[:7]}xxxxxxxxx|{mes}|{ano}|{cvv}</code> \n STATUS ➟ Declined \n MSG 
 ➟ {msg} \n TOOK: {toc - tic:0.4f} \n CHECKED BY @ASURCCWORLDBOT \n
 Used by @{userid}
