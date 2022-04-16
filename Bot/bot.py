@@ -132,28 +132,40 @@ def chk(update,context):
     mes=i[1]
     ano=i[2]
     cvv=i[3]
-    sk_headers = {
-    "authority": "api.stripe.com",
-    "accept": "application/json",
-    "accept-language": "en-IN,en-GB;q=0.9,en-US;q=0.8,en;q=0.7,hi;q=0.6",
-    "content-type": "application/x-www-form-urlencoded",
-    "origin": "https://js.stripe.com",
-    "referer": "https://js.stripe.com/",
-    "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.81 Safari/537.36"}
-    res = requests.get("https://randomuser.me/api/?nat=us&inc=name,location")
-    random_data = json.loads(res.text)
-    first_name = random_data['results'][0]['name']['first'] 
-    last_name = random_data['results'][0]['name']['last']
-    street = str(random_data['results'][0]['location']['street']['number']) +" " +random_data['results'][0]['location']['street']['name'] 
-    city = random_data['results'][0]['location']['city'] 
-    state = random_data['results'][0]['location']['state']
-    zip = random_data['results'][0]['location']['postcode']
-    email = str(''.join(random.choices(string.ascii_lowercase + string.digits, k = 8))) + '@gmail.com' 
-    password = str("".join(random.choices(string.ascii_uppercase + string.digits, k=10))) 
-    data = f"time_on_page=38212&pasted_fields=number&guid=NA&muid=NA&sid=NA&key=pk_live_omFDE4PpGEioGWha5NXjoPJo&payment_user_agent=stripe.js%2F308cc4f&card[number]={cc}&card[exp_month]={mes}&card[exp_year]={ano}&card[address_line1]={street}&card[address_line2]=&card[address_city]={city}&card[address_state]={state}&card[address_zip]={zip}&card[address_country]=US&card[cvc]={cvv}&card[name]={first_name}+{last_name}"
-    response = requests.post('https://api.stripe.com/v1/tokens', headers=sk_headers, data=data)
-    q = response.text
-    e=json.loads(q)
+    url = 'https://api.stripe.com/v1/payment_methods'
+    headers = {
+        'Authorization': 'Bearer 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',
+        'Content-Type': 'application/x-www-form-urlencoded'
+    }
+    data = {
+        'type': 'card',
+        'card[number]': i[0],
+        'card[exp_month]': i[1],
+        'card[exp_year]': i[2],
+        'card[cvc]': i[3]
+    }
+    response = requests.post(url, headers=headers, data=data)
+    q=response.text
+    w=json.loads(q)
+
+    #second request
+    url = 'https://api.stripe.com/v1/payment_intents'
+    headers = {
+        'Authorization': 'Bearer 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',
+        'Content-Type': 'application/x-www-form-urlencoded'
+    }
+    data = {
+        'amount': '1',
+        'currency': 'usd',
+        'payment_method_types[]': 'card',
+        'description': 'Asur Donation',
+        'payment_method': w["id"],
+        'confirm': 'true',
+        'off_session': 'true'
+    }
+    response = requests.post(url, headers=headers, data=data)
+    b=response.text
+    e=json.loads(b)
     if "error" not in e:
         msg = "CCN or CVV LIVE!"
     else:
