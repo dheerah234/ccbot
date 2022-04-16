@@ -207,7 +207,7 @@ Used by @{userid}
 """)
         Sendmessage(chat_id , text)
     else:
-        if msg ==  "Your card has insufficient funds."
+        if msg ==  "Your card has insufficient funds.":
             msg = "Your card has insufficient funds ✅"
             text=(f"""
 {wdia} CC {crs} <code>{cc[:7]}xxxxxxxxx|{mes}|{ano}|{cvv}</code> \n STATUS {crs} Declined \n MSG 
