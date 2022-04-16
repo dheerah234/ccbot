@@ -126,6 +126,7 @@ def chk(update,context):
     userid= info['username']
     tic = time.perf_counter()
     wdia ='❌'
+    crs = '➟'
     text =  update.message.text.split(' ', 1)
     maintxt=text[-1]
     i=maintxt.split("|")
@@ -181,10 +182,10 @@ def chk(update,context):
     toc = time.perf_counter()
     if "invalid_cvc" in response.text:
         text = (f"""
-✅CC➟ <code>{cc[:7]}xxxxxxxxxx|{mes}|{ano}|{cvv}</code> \n
-STATUS ➟ #ApprovedCCN \n
-MSG➟ {msg} \n
-VBV[3D] ➟ {vs} \n
+✅CC {crs} <code>{cc[:7]}xxxxxxxxxx|{mes}|{ano}|{cvv}</code> \n
+STATUS {crs} #ApprovedCCN \n
+MSG {crs} {msg} \n
+VBV[3D] {crs} {vs} \n
 TOOK: {toc - tic:0.4f}s\n
 CHECKED BY @ASURCCWORLDBOT \n
 Used by @{userid}
@@ -199,7 +200,7 @@ Used by @{userid}
 STATUS ➟ #ApprovedCVV \n
 Response -» Successfully Charged 1$ ✅ \n
 Gateway -» Stripe Charge 1$ \n
-VBV[3D] ➟ {vs}  \n
+VBV[3D] {crs} {vs}  \n
 TOOK: {toc - tic:0.4f}s\n
 CHECKED BY @ASURCCWORLDBOT \n
 Used by @{userid}
@@ -209,13 +210,13 @@ Used by @{userid}
         if msg =  "Your card has insufficient funds."
             msg = "Your card has insufficient funds ✅"
             text=(f"""
-{wdia} CC➟ <code>{cc[:7]}xxxxxxxxx|{mes}|{ano}|{cvv}</code> \n STATUS ➟ Declined \n MSG 
-➟ {msg} \n TOOK: {toc - tic:0.4f} \n CHECKED BY @ASURCCWORLDBOT \n
+{wdia} CC {crs} <code>{cc[:7]}xxxxxxxxx|{mes}|{ano}|{cvv}</code> \n STATUS {crs} Declined \n MSG 
+{crs} {msg} \n TOOK: {toc - tic:0.4f} \n CHECKED BY @ASURCCWORLDBOT \n
 Used by @{userid}
         else:
             text=(f"""
-{wdia} CC➟ <code>{cc[:7]}xxxxxxxxx|{mes}|{ano}|{cvv}</code> \n STATUS ➟ Declined \n MSG 
-➟ {msg} \n TOOK: {toc - tic:0.4f} \n CHECKED BY @ASURCCWORLDBOT \n
+{wdia} CC {crs} <code>{cc[:7]}xxxxxxxxx|{mes}|{ano}|{cvv}</code> \n STATUS {crs} Declined \n MSG 
+{crs} {msg} \n TOOK: {toc - tic:0.4f} \n CHECKED BY @ASURCCWORLDBOT \n
 Used by @{userid}
 """)
         Sendmessage(chat_id , text)
