@@ -168,7 +168,7 @@ Used by @{userid}
     elif "Unrecognized request URL" in response.text:
         text = ("[UPDATE] PROXIES ERROR")
         Sendmessage(chat_id , text)
-    elif rx.status_code == 200:
+    elif response.status_code == 200:
         text = (f"""
 ✔️CC➟ <code>{cc[:7]}xxxxxxx|{mon}|{year}|{cvv}</code> \n
 STATUS ➟ #ApprovedCVV \n
