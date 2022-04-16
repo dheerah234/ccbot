@@ -159,7 +159,7 @@ def chk(update,context):
     else:
         msg = e["error"]["message"]
     toc = time.perf_counter()
-    if "incorrect_cvc" in response.text:
+    if "invalid_cvc" in response.text:
         text = (f"""
 ✅CC➟ <code>{cc[:7]}xxxxxxxxxx|{mes}|{ano}|{cvv}</code> \n
 STATUS ➟ #ApprovedCCN \n
