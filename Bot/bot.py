@@ -188,6 +188,8 @@ Used by @{userid}
         text = (f"""
 ✔️CC➟ <code>{cc[:7]}xxxxxxxxxx|{mes}|{ano}|{cvv}</code> \n
 STATUS ➟ #ApprovedCVV \n
+Response -» Successfully Charged 1$ ✅
+Gateway -» Stripe Charge 1$ 
 TOOK: {toc - tic:0.4f}s\n
 CHECKED BY @ASURCCWORLDBOT \n
 Used by @{userid}
