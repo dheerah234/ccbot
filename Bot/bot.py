@@ -133,7 +133,7 @@ def chk(update,context):
     year=i[2]
     cvv=i[3]
     email = f"{str(rnd)}@gmail.com"
-    skeys = OrderedDict([(1,'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')]);
+    skeys = OrderedDict([(1,'pk_live_51KonP5SIiTNx1K26aonO8Je21U65O7RmDIcRz1USMQz4BaafMQd5FDQyUV9xLiVYGNeaFCobXQXhtgzfBW56AeXv00JiqMOk7f')]);
     headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4571.0 Safari/537.36 Edg/93.0.957.0","Accept": "application/json, text/plain, */*","Content-Type": "application/x-www-form-urlencoded"}
     s = requests.post("https://m.stripe.com/6",headers=headers)
     r = s.json()
@@ -169,7 +169,7 @@ def chk(update,context):
       "use_stripe_sdk": "true",
       "webauthn_uvpa_available": "true",
       "spc_eligible": "false",
-      "key": "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",
+      "key": "pk_live_51KonP5SIiTNx1K26aonO8Je21U65O7RmDIcRz1USMQz4BaafMQd5FDQyUV9xLiVYGNeaFCobXQXhtgzfBW56AeXv00JiqMOk7f",
       "client_secret" : "noi"
     }
     
