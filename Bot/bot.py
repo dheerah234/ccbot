@@ -12,8 +12,9 @@ import time
 import json
 import math
 from collections import OrderedDict
-
+sk_chg='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'
 os.environ['TZ'] = 'America/Buenos_Aires'
+
 bot_token = os.environ.get('TG_BOT_TOKEN')
 startmessage = [[
 		InlineKeyboardButton(
@@ -118,6 +119,25 @@ def bin(update, context):
         text = p.format(wdia,ab[:6],userid)
         Sendmessage(chat_id, text)
 ################################################################################################################################
+def setsk(update, context):
+    chat_id = update.message.chat_id
+    info = update.effective_user
+    chat_id = info.id
+    userid= info['username']
+    text =  update.message.text.split(' ', 1)
+    tt=text[-1]
+    if tt[:3]=="sk" or "pk":
+	text="'✅'Your Sk Key has been set!!"
+        sk_chg=tt
+        Sendmessage(chat_id, text)
+    else:
+        sk_chg='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'
+        text ="Default is been continued as your sk key is invalid"
+        Sendmessage(chat_id, text)
+    
+             
+
+################################################################################################################################
 
 def chk(update,context):
     chat_id = update.message.chat_id
@@ -131,7 +151,7 @@ def chk(update,context):
     maintxt=text[-1]
     i=maintxt.split("|")
     cc=i[0]
-    sk_chg='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'
+
     skq1=sk_chg[:16]
     skq2="x"*78
     skq3=sk_chg[-4:]
