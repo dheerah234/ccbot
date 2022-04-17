@@ -149,6 +149,15 @@ def chk(update,context):
     response = requests.post(url, headers=headers, data=data)
     q=response.text
     w=json.loads(q)
+    if "invalid_request_error" in response.text:
+        text = (f"""
+{wdia} SK-key expired {crs} change SK key \n
+
+CHECKED BY @ASURCCWORLDBOT \n
+Used by @{userid}
+""")
+        Sendmessage(chat_id , text)
+        Break
     if 'card' not in w:
        w['card']['three_d_secure_usage']['supported'] == False
        vs ="False"
