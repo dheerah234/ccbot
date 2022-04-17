@@ -119,7 +119,7 @@ def bin(update, context):
         text = p.format(wdia,ab[:6],userid)
         Sendmessage(chat_id, text)
 ################################################################################################################################
-def setsk(update, context):
+def asetsk(update, context):
     chat_id = update.message.chat_id
     info = update.effective_user
     chat_id = info.id
@@ -127,7 +127,7 @@ def setsk(update, context):
     text =  update.message.text.split(' ', 1)
     tt=text[-1]
     if tt[:3]=="sk" or "pk":
-	text="'✅'Your Sk Key has been set!!"
+        text="'✅'Your Sk Key has been set!!"
         sk_chg=tt
         Sendmessage(chat_id, text)
     else:
@@ -282,7 +282,7 @@ def main():
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(CommandHandler("help", help))
     dp.add_handler(CommandHandler("botinfo", botinfo))
-    dp.add_handler(CommandHandler("setsk", setsk))
+    dp.add_handler(CommandHandler("asetsk", asetsk))
     dp.add_handler(CommandHandler("botcmds", botcmds))
     dp.add_handler(CommandHandler("chk", chk))
     dp.add_handler(CommandHandler("bin", bin))
