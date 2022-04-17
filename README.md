@@ -1,5 +1,5 @@
 <h1 align="center">
-Account Check Bot
+CC checker bot
 </h1>
 
 <div align="center">
@@ -10,12 +10,11 @@ Account Check Bot
 
 <table border="0">
   <tr>
-    <td align="center">
-      Telegram Bot using a simple <a target="https://python-telegram-bot.readthedocs.io/" >Python Telegram Bot</a> library, which can check if email and passwords are correct for many sites and returns if the account have any subscription
+    <td align="center"> nothing much
     </td>
     <td align="center">
       For Demo you can check
-      <a href="https://tx.me/Acc_CheckBot">
+      <a href="https://te.me/dheeraj2324">
         <img src="https://images-na.ssl-images-amazon.com/images/I/71JLC2xwlTL.png" />
       </a>
     </td>
