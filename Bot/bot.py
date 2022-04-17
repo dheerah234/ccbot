@@ -123,15 +123,16 @@ def asetsk(update, context):
     chat_id = update.message.chat_id
     info = update.effective_user
     chat_id = info.id
+    global sk_chg
     userid= info['username']
     text =  update.message.text.split(' ', 1)
     tt=text[-1]
     if tt[:3]=="sk" or "pk":
-        text="'✅'Your Sk Key has been set!!"
-        sk_chg=tt
+        text=" ✅ Your Sk Key has been set!!"
+        sk_chg = tt
         Sendmessage(chat_id, text)
     else:
-        sk_chg='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'
+        
         text ="Default is been continued as your sk key is invalid"
         Sendmessage(chat_id, text)
     
