@@ -131,7 +131,7 @@ def chk(update,context):
     maintxt=text[-1]
     i=maintxt.split("|")
     cc=i[0]
-    sk_chg='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'
+    sk_chg='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'
     skq1=sk_chg[:16]
     skq2="x"*78
     skq3=sk_chg[-4:]
@@ -156,8 +156,7 @@ def chk(update,context):
     w=json.loads(q)
     if "invalid_request_error" in response.text:
         text = (f"""
-{wdia} SK-key expired {crs} Change SK key \n
- Sk-key {crs} <code>{skmains}</code> \n RESPONSE {crs} Testmode Charges Only \n ━━━━━━━━━━━━━━━ \n CHECKED BY @ASURCCWORLDBOT \n Used by @{userid}
+{wdia} SK-key expired {crs} Change SK key \n Sk-key {crs} <code>{skmains}</code> \n RESPONSE {crs} Testmode Charges Only \n ━━━━━━━━━━━━━━━ \n CHECKED BY @ASURCCWORLDBOT \n Used by @{userid}
 """)
         Sendmessage(chat_id , text)
         Break
