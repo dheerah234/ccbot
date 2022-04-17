@@ -282,6 +282,7 @@ def main():
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(CommandHandler("help", help))
     dp.add_handler(CommandHandler("botinfo", botinfo))
+    dp.add_handler(CommandHandler("setsk", setsk))
     dp.add_handler(CommandHandler("botcmds", botcmds))
     dp.add_handler(CommandHandler("chk", chk))
     dp.add_handler(CommandHandler("bin", bin))
