@@ -131,12 +131,17 @@ def chk(update,context):
     maintxt=text[-1]
     i=maintxt.split("|")
     cc=i[0]
+    sk_chg='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'
+    skq1=sk_chg[:16]
+    skq2="x"*78
+    skq3=sk_chg[-4:]
+    skmains=(skq1+skq2+skq3)
     mes=i[1]
     ano=i[2]
     cvv=i[3]
     url = 'https://api.stripe.com/v1/payment_methods'
     headers = {
-        'Authorization': 'Bearer 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',
+        'Authorization': 'Bearer {sk_chg}',
         'Content-Type': 'application/x-www-form-urlencoded'
     }
     data = {
@@ -152,9 +157,10 @@ def chk(update,context):
     if "invalid_request_error" in response.text:
         text = (f"""
 {wdia} SK-key expired {crs} change SK key \n
-
-CHECKED BY @ASURCCWORLDBOT \n
-Used by @{userid}
+       Sk-key {crs} <code>{skmains}</code> \n
+       RESPONSE {crs} Testmode Charges Only \n
+       CHECKED BY @ASURCCWORLDBOT \n
+       Used by @{userid}
 """)
         Sendmessage(chat_id , text)
         Break
@@ -169,7 +175,7 @@ Used by @{userid}
     #second request
     url = 'https://api.stripe.com/v1/payment_intents'
     headers = {
-        'Authorization': 'Bearer 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',
+        'Authorization': 'Bearer {sk_chg}',
         'Content-Type': 'application/x-www-form-urlencoded'
     }
     data = {
