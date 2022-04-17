@@ -136,7 +136,7 @@ def chk(update,context):
     cvv=i[3]
     url = 'https://api.stripe.com/v1/payment_methods'
     headers = {
-        'Authorization': 'Bearer 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',
+        'Authorization': 'Bearer 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',
         'Content-Type': 'application/x-www-form-urlencoded'
     }
     data = {
@@ -169,7 +169,7 @@ Used by @{userid}
     #second request
     url = 'https://api.stripe.com/v1/payment_intents'
     headers = {
-        'Authorization': 'Bearer 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',
+        'Authorization': 'Bearer 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',
         'Content-Type': 'application/x-www-form-urlencoded'
     }
     data = {
